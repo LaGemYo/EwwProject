@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
+
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    font-family: rancho;
+   
+    .spaceDiv{
+        height:100px;
+    }
+
+    #mainDiv{
+        display: block;
+        text-align: center;
+  
+        h1{
+            width: 100%;
+            font-size: 20vw;
+            justify-self: center;
+            margin-bottom: 5vw;
+            margin-top: 5vw;
+
+        }
+        
+        button {
+            font-family:rancho;
+            font-size: 5vw;
+            margin: 15px;
+            padding: 20px;
+            border: #351a65 solid 4px;
+            border-radius: 10px;
+            align-content: center;
+            background-color: #7961A1;
+            box-shadow: 9px 9px 9px #666;
+            width: 100%;        
+        }
+    }
+
+}
