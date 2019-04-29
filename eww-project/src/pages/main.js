@@ -1,32 +1,32 @@
 import React from 'react';
 import main from './main.scss';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-
-export default class Main extends React.Component{
-  constructor(props){
+export default class Main extends React.Component {
+  constructor(props) {
     super(props);
 
     this.state = {
 
     }
   }
-
-  componentDidMount(){
-
+  componentDidMount() {
   }
 
-  render(){
-
+  render() {
     return (
       <div id="mainDiv">
           <h1 class="font-effect-shadow-multiple" id="mainTitle">Main menu</h1>
-        <button id="logInButton">
-            LOG IN
-        </button>
-        <button id="signUpButton">
-            SIGN UP
-        </button>
-
+          <Link to="/login" >
+            <button id="logInButton" type="button">
+              <span>LOG IN</span>
+            </button>
+          </Link>
+          <Link to="/signup" >
+            <button id="signUpButton">
+             <span>SIGN UP</span> 
+            </button> 
+            </Link>
       </div>
     )
   }

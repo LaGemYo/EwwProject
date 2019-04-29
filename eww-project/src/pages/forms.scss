@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
 
+$bg-color: pink;
+h1{
+width: 100%;
+font-size: 20vw;
+justify-self: center;
+margin-bottom: 5vw;
+margin-top: 5vw;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
 body{
     display: flex;
     justify-content: center;
@@ -11,19 +25,23 @@ body{
         height:100px;
     }
 
-    #mainDiv{
+    input{
+        font-size: 4vw;
+        border-radius: 20px;
+        text-align: center;
+    }
+    #loginDiv{
         display: block;
         text-align: center;
+        background-color: $bg-color;
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
   
-        h1{
-            width: 100%;
-            font-size: 20vw;
-            justify-self: center;
-            margin-bottom: 5vw;
-            margin-top: 5vw;
-
-        }
         
+        .form-class {
+          font-size: 6vw;
+        }
         button {
             font-family:rancho;
             font-size: 5vw;
@@ -35,6 +53,14 @@ body{
             background-color: #7961A1;
             box-shadow: 9px 9px 9px #666;
             width: 100%;        
+        }
+        .submit-button {
+            padding: 10px;
+            border: black solid 2px;
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-bottom: 10%;
+            box-shadow: 9px 9px 9px #666;
         }
     }
 

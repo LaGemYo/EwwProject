@@ -1,5 +1,5 @@
 import React from 'react';
-import login from './login.scss';
+import forms from './forms.scss';
 
 
 export default class Login extends React.Component{
@@ -15,12 +15,29 @@ export default class Login extends React.Component{
 
   }
 
-  render(){
+  onFormSubmit = (event) => {
+    event.preventDefault();
+    console.log('submit pressed')
+  }
 
+  render(){
     return (
       <div id="loginDiv">
-        log in form
-
+        <h1 className="font-effect-shadow-multiple" id="mainTitle">Log in</h1>
+        <form onSubmit={this.onFormSubmit}>
+        <label className="form-class">
+          Name:
+          <br/>
+          <input type="text"/>
+        </label>
+        <label className="form-class">
+        <br/>
+          Password:
+          <input type="text"/>
+        </label>
+        <br/>
+        <input className="submit-button" type="submit" value="Submit" />
+      </form>
       </div>
     )
   }
