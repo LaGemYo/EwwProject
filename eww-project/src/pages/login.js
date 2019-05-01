@@ -1,6 +1,6 @@
 import React from 'react';
 import forms from './forms.scss';
-
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 export default class Login extends React.Component{
   constructor(props){
@@ -23,6 +23,13 @@ export default class Login extends React.Component{
   render(){
     return (
       <div id="loginDiv">
+        <Link to="/" >
+          <div className="return-space">
+            <button className="return">
+             <span>Return to Main</span> 
+            </button> 
+          </div>
+        </Link>
         <h1 className="font-effect-shadow-multiple" id="mainTitle">Log in</h1>
         <form onSubmit={this.onFormSubmit}>
         <label className="form-class">
