@@ -1,0 +1,126 @@
+h1, p {
+    font-family: Lato;
+    text-align: center;
+  }
+
+  #game-div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .grid {
+    display: grid;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 4fr 2fr;
+    grid-template-rows: 1fr auto auto;
+    grid-template-areas: "left up right"
+                         "left  center right "
+                         "left center right"
+                         "left center right"
+                         "left down right"
+  }
+  
+  .up { grid-area: up; background: pink; width: auto; height: 100px;}
+  .down { grid-area: down; background: pink; width: auto; height: 100px; }
+  .left { 
+        grid-area: left; 
+        background: pink; 
+        width: auto; 
+        height: 690px; 
+        text-align: center;
+        justify-content: center;
+        display: block; 
+        padding: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+  .right { 
+      grid-area: right; 
+      background: pink; 
+      width: 230px; 
+      height: 690px; 
+      text-align: center; 
+      justify-content: center; 
+      display: block; 
+      input {
+          font-size: 14px;
+          height: 100%;
+          width: 100%;
+      }
+      #data-input {
+        background-color: dimgrey;
+        color: white;
+        font-weight: bold;
+    }
+
+      #talking-out-div {
+          height: 60%;
+          margin: 2%;
+      }
+      #talking-div {
+        margin: 3%;
+        height: 100%;
+        margin-top: 10%;
+        
+    }
+      #data-out-div {
+        height: 200px;
+      }
+      #data-div {
+        height: 100%;
+        margin: 3%;
+        margin-top: 10%;
+      }     
+    }
+  .center { 
+      grid-area: center; 
+      background: white; 
+      width: auto; 
+      height: 490px; 
+      background-image: url('../components/images/fondo-juego.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    #foto-button{
+        background-image: url('../components/images/foto-button.png');
+        width: 100%;
+        height: 70px;
+        background-size: contain;
+        background-color: white;
+        background-repeat: no-repeat;
+        box-shadow: 9px 9px 9px #666;
+    }
+    #music-button{
+        background-image: url('../components/images/music-button.png');
+        width: 100%;
+        height: 70px;
+        background-size: contain;
+        background-color: white;
+        background-repeat: no-repeat;
+        box-shadow: 9px 9px 9px #666;
+    }
+    .return-arrow-button {
+        background-image: url('../components/images/return-image.png');
+        width: 100%;
+        height: 70px;
+        background-size: contain;
+        background-color: white;
+        background-repeat: no-repeat;
+        box-shadow: 9px 9px 9px #666;
+    }
+    #eww-image {
+      width: 200px;
+      height: 200px;
+    }
+    .eww-image {
+      width: 100%;
+      height: 100%;
+    }

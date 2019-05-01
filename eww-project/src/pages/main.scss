@@ -2,12 +2,19 @@
 
 
 body{
+    a {
+        text-decoration: none;
+    }
+    #root{
+        width: 100%;
+        margin-top: 5%;
+    }
     display: flex;
     justify-content: center;
     align-content: center;
     width: 100%;
     font-family: rancho;
-    background-image: url('../components/Fondo-main.png');
+    background-image: url('../components/images/Fondo-main.png');
     .spaceDiv{
         height:100px;
     }
@@ -39,5 +46,4 @@ body{
             width: 100%;        
         }
     }
-
 }

@@ -35,12 +35,12 @@ export default class Login extends React.Component{
         <label className="form-class">
           Name:
           <br/>
-          <input type="text"/>
+          <input className="input-form" type="text"/>
         </label>
         <label className="form-class">
         <br/>
           Password:
-          <input type="text"/>
+          <input className="input-form" type="text"/>
         </label>
         <br/>
         <input className="submit-button" type="submit" value="Submit" />
