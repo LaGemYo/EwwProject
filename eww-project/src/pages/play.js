@@ -5,10 +5,13 @@ import playgrid from '../pages/playgrid.scss';
 import Bar from '../components/Bar.js'
 import Foto from '../components/Foto.js'
 import GameScreen from '../components/GameScreen.js'
-import InteractionMenu from '../components/InteractionMenu.js'
+//import InteractionMenu from '../components/InteractionMenu.js'
 import Music from '../components/Music.js'
 import ShowUserData from '../components/ShowUserData.js'
 import Talking from '../components/Talking.js'
+import ToWetButton from "../components/ToWetButton";
+import ToFeedButton from "../components/ToFeedButton";
+import ToPlayWithEwwButton from '../components/ToPlayWithEwwButton';
 
 export default class Play extends React.Component {
   constructor(props) {
@@ -29,9 +32,9 @@ export default class Play extends React.Component {
             <Bar />
           </div>
           <div className="left">
-            <Link to="/" >
-              <div className="return-space">
-                <button className="return-arrow-button"/>
+            <Link to="/user" >
+              <div className="return-space-play">
+                <button className="return-arrow-button" />
               </div>
             </Link>
             <Foto />
@@ -41,7 +44,9 @@ export default class Play extends React.Component {
             <GameScreen />
           </div>
           <div className="down">
-            <InteractionMenu />
+            <ToWetButton />
+            <ToFeedButton />
+            <ToPlayWithEwwButton />
           </div>
           <div className="right">
             <Talking />

@@ -16,28 +16,32 @@ export default class UserMenu extends React.Component {
   render() {
     return (
       <div id="userDiv">
-        <Link to="/" >
-            <button className="return">
-             <span>Return to Main</span> 
-            </button> 
-        </Link>
+            <Link to="/" >
+              <div className="return-space">
+                <button className="return-arrow-button" />
+              </div>
+            </Link>
         <h1 className="font-effect-shadow-multiple" id="userTitle">User's Menu</h1>
         <Link to="/play" >
-            <button id="play-button">
+            <button className="menu-button" id="play-button">
              <span>Play</span> 
             </button> 
         </Link>
         <Link to="/story" >
-            <button id="story-button">
+            <button className="menu-button" id="story-button">
              <span>Story</span> 
             </button> 
         </Link>
         <Link to="/summary" >
-            <button id="summary-button">
+            <button className="menu-button" id="summary-button">
              <span>Summary</span> 
             </button> 
         </Link>
-            <button id="reset-button">Reset Game</button>
+          <div>
+            <button className="menu-button" id="reset-button">
+              <span>Reset Game</span>
+            </button>
+          </div>
       </div>
     )
   }

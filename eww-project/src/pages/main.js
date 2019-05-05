@@ -18,12 +18,12 @@ export default class Main extends React.Component {
         <div id="mainDiv">
             <h1 className="font-effect-shadow-multiple" id="mainTitle">Main menu</h1>
             <Link to="/login" >
-              <button id="logInButton" type="button">
+              <button className="menu-button" id="logInButton" type="button">
                 <span>LOG IN</span>
               </button>
             </Link>
             <Link to="/signup" >
-              <button id="signUpButton">
+              <button className="menu-button" id="signUpButton">
               <span>SIGN UP</span> 
               </button> 
               </Link>

@@ -9,7 +9,7 @@ export default class Music extends Component {
   render() {
     return (
       <div>
-        <button id="music-button"/>
+        <button className="left-button" id="music-button"/>
       </div>
     );
   }

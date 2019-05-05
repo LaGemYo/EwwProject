@@ -7,7 +7,7 @@ import SignUp from './pages/signup';
 import UserMenu from './pages/userMenu';
 import Play from './pages/play';
 import Summary from './pages/summary';
-import Story from './components/Story';
+import Story from './pages/story';
 
 function routes(props) {
   return (

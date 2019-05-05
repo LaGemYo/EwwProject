@@ -1,17 +1,17 @@
 h1, p {
     font-family: Lato;
     text-align: center;
-  }
+}
 
-  #game-div{
+#game-div{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-  }
-  .grid {
+}
+.grid {
     display: grid;
-    width: 80%;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
     grid-template-columns: 1fr 4fr 2fr;
@@ -21,28 +21,43 @@ h1, p {
                          "left center right"
                          "left center right"
                          "left down right"
-  }
+}
   
-  .up { grid-area: up; background: pink; width: auto; height: 100px;}
-  .down { grid-area: down; background: pink; width: auto; height: 100px; }
-  .left { 
+.up { 
+    grid-area: up; 
+    background: pink; 
+    width: auto; 
+    height: 100px;
+}
+.down { 
+    grid-area: down; 
+    background: pink; 
+    width: auto; 
+    height: 100px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.left { 
         grid-area: left; 
         background: pink; 
         width: auto; 
-        height: 690px; 
+        height: auto; 
         text-align: center;
         justify-content: center;
-        display: block; 
         padding: 20%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-    }
-  .right { 
+}
+.return-space-play {
+      width: 100%;
+}
+.right { 
       grid-area: right; 
       background: pink; 
-      width: 230px; 
-      height: 690px; 
+      width: 100%; 
+      height: auto; 
       text-align: center; 
       justify-content: center; 
       display: block; 
@@ -75,12 +90,12 @@ h1, p {
         margin: 3%;
         margin-top: 10%;
       }     
-    }
-  .center { 
+}
+.center { 
       grid-area: center; 
       background: white; 
       width: auto; 
-      height: 490px; 
+      height: 600px; 
       background-image: url('../components/images/fondo-juego.png');
       background-size: cover;
       background-repeat: no-repeat;
@@ -88,39 +103,69 @@ h1, p {
       justify-content: center;
       flex-direction: column;
       align-items: center;
-    }
-    #foto-button{
+}
+.left-button {
+      width: 100%;
+      height: 70px;
+      background-size: contain;
+      background-color: white;
+      background-repeat: no-repeat;
+      box-shadow: 9px 9px 9px #666;
+      background-position: center;
+      border-radius: 10px;
+      border: pink solid 3px;
+}
+#foto-button{
         background-image: url('../components/images/foto-button.png');
-        width: 100%;
-        height: 70px;
-        background-size: contain;
-        background-color: white;
-        background-repeat: no-repeat;
-        box-shadow: 9px 9px 9px #666;
-    }
-    #music-button{
-        background-image: url('../components/images/music-button.png');
-        width: 100%;
-        height: 70px;
-        background-size: contain;
-        background-color: white;
-        background-repeat: no-repeat;
-        box-shadow: 9px 9px 9px #666;
-    }
-    .return-arrow-button {
-        background-image: url('../components/images/return-image.png');
-        width: 100%;
-        height: 70px;
-        background-size: contain;
-        background-color: white;
-        background-repeat: no-repeat;
-        box-shadow: 9px 9px 9px #666;
-    }
-    #eww-image {
+}
+#music-button{
+        background-image: url('../components/images/music-button.png');  
+}
+#eww-image {
       width: 200px;
       height: 200px;
-    }
-    .eww-image {
+}
+.eww-image {
       width: 100%;
       height: 100%;
-    }
+}
+.down-button {
+      width: 140px;
+      height: -webkit-fill-available;
+      background-color: white;
+      background-repeat: no-repeat;
+      box-shadow: 9px 9px 9px #666;
+      background-position: center;
+      background-size: contain;
+      border: pink solid 3px;
+      border-radius: 10px;
+}
+#wet-button {
+  background-image: url('../components/images/wet-button.png');
+}
+#play-with-button {
+  background-image: url('../components/images/gamepad.png');
+}
+#to-feed-button {
+  background-image: url('../components/images/feed-button.png');
+}
+.interaction-button {
+  width: 100%;
+  height: 100%;
+}
+#eww-image {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.eww-pet {
+  background-image: url('../components/images/sad-eww.gif');
+  width: 12vw;
+  height: 12vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+

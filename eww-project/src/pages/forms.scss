@@ -1,34 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
 
 $bg-color: pink;
-h1{
-width: 100%;
-font-size: 20vw;
-justify-self: center;
-margin-bottom: 5vw;
-margin-top: 5vw;
-}
 
 html {
     width: 100%;
     height: 100%;
     margin: 0 auto;
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    width: 100%;
-    font-family: rancho;
-   
+body{  
+    form {
+        display: flex;
+        flex-direction: column;
+    }  
+    label.form-class {
+        font-size: 2vw;
+        margin-bottom: 10px;
+        margin-left: 10px;
+      }
+    #submit {
+        align-self: center;
+    }
     .spaceDiv{
         height:100px;
     }
-
     .input-form{
-        font-size: 4vw;
+        font-size: 2vw;
         border-radius: 20px;
         text-align: center;
+        margin-left: 10px;
     }
     #loginDiv{
         display: block;
@@ -37,48 +36,14 @@ body{
         width: 90%;
         height: 90%;
         margin: 0 auto;
-        
-        
-        .form-class {
-          font-size: 6vw;
-        }
-        button {
-            font-family:rancho;
-            font-size: 5vw;
-            margin: 15px;
-            padding: 20px;
-            border: #351a65 solid 4px;
-            border-radius: 10px;
-            align-content: center;
-            background-color: #7961A1;
+        .return-arrow-button{
+            background-image: url(/static/media/return-image.2f4449a8.png);
+            width: 6vw;
+            height: 6vw;
+            background-size: contain;
+            background-color: white;
+            background-repeat: no-repeat;
             box-shadow: 9px 9px 9px #666;
-            width: 100%;    
-        
-        }
-        .submit-button {
-            padding: 10px;
-            border: black solid 2px;
-            border-radius: 10px;
-            margin-top: 15px;
-            margin-bottom: 10%;
-            box-shadow: 9px 9px 9px #666;
-        }
-        .return {
-            flex-direction: row;
-            display: flex;
-            font-size: 2vw;
-            justify-content: center;
-    
-        }
-        .return-space{
-            display: flex;
-            text-decoration: none;
-            width: 20%;
-            justify-content: flex-start;
-            text-decoration: none;
-            width: 40%;
-            font-size: 20px;
-            justify-content: flex-start;
         }
     }
 

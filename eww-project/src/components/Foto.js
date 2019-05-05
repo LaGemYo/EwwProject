@@ -9,7 +9,7 @@ export default class Foto extends Component {
   render() {
     return (
       <div>
-        <button id="foto-button"/>
+        <button className="left-button" id="foto-button"/>
       </div>
     );
   }
