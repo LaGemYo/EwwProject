@@ -10,7 +10,14 @@ export default class ToFeedButton extends Component {
   render() {
     return (
       <div className="interact-button">
-        <button className="down-button" id="to-feed-button"/>
+        <div class="dropup">
+          <button className="down-button" id="to-feed-button" />
+          <div class="dropup-content">
+            <button className="insect" id="insect1"/>
+            <button className="insect" id="insect2"/>
+            <button className="insect" id="insect3"/>
+          </div>
+        </div>
       </div>
     );
   }

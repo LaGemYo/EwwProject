@@ -16,7 +16,12 @@ export default class Story extends React.Component {
   render() {
     return (
       <div id="storyDiv">
-        <SimpleSlider/>
+        <Link to="/" >
+          <div className="return-space">
+            <button className="return-arrow-button" />
+          </div>
+        </Link>
+        <SimpleSlider />
       </div>
     )
   }

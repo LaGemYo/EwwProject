@@ -44,8 +44,8 @@ export default class Play extends React.Component {
             <GameScreen />
           </div>
           <div className="down">
-            <ToWetButton />
             <ToFeedButton />
+            <ToWetButton />
             <ToPlayWithEwwButton />
           </div>
           <div className="right">

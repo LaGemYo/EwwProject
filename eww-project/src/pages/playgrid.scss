@@ -162,10 +162,58 @@ h1, p {
 }
 .eww-pet {
   background-image: url('../components/images/sad-eww.gif');
-  width: 12vw;
-  height: 12vw;
+  width: 17vw;
+  height: 17vw;
   background-size: contain;
   background-repeat: no-repeat;
 }
-
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropup-content a:hover {background-color: #ddd}
+.dropup:hover .dropup-content {
+  display: flex;
+  margin: 36%;
+}
+.dropup:hover .dropbtn {
+  background-color: #2980B9;
+}
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.insect {
+  width: 90px;
+  height: 90px;
+  width: 140px;
+  height: -webkit-fill-available;
+  background-color: white;
+  background-repeat: no-repeat;
+  box-shadow: 9px 9px 9px #666;
+  background-position: center;
+  background-size: contain;
+  border: pink solid 3px;
+  border-radius: 10px;
+}
+#insect1 {
+  background-image: url('../components/images/insect1.png');
+}
+#insect2 {
+  background-image: url('../components/images/insect2.png');
+}
+#insect3 {
+  background-image: url('../components/images/insect3.png');
+}
 
