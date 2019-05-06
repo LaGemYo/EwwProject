@@ -18,7 +18,7 @@ export default class UserMenu extends React.Component {
 
   logout = () => {
     AuthService.logout();
-    
+    this.props.history.push('/');
   }
 
   render() {
