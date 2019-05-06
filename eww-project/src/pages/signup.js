@@ -66,7 +66,7 @@ export default class SignUp extends React.Component{
 
         if(success) {
           console.log("GUARDAR NUEVO USUARIO EN REDUX");
-          this.props.history.push('/');
+          this.props.history.push('/user');
         }
         
       } else {
@@ -104,7 +104,7 @@ export default class SignUp extends React.Component{
             <label>Contraseña</label>
             <input type="password" name="password" value={password} onChange={this.onChangeInput} />
           </div>
-          <button>Crear cuenta!</button>
+          <button className="menu-button">Crear cuenta!</button>
           {errorMessage && <p>{errorMessage}</p>}
         </form>
         </div>

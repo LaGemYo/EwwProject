@@ -1,26 +1,32 @@
 import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import userMenu from './userMenu.scss'
+import AuthService from '../services/authService';
+import DataService from '../services/dataService';
+
+import { setUserInfo } from '../redux/actions/userActions';
 
 export default class UserMenu extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
 
     this.state = {
+      loading: true
 
     }
   }
-  componentDidMount() {
+
+  logout = () => {
+    AuthService.logout();
+    
   }
 
   render() {
     return (
       <div id="userDiv">
-            <Link to="/" >
-              <div className="return-space">
-                <button className="return-arrow-button" />
-              </div>
-            </Link>
+            <button className="menu-button" id="logout-button" onClick={this.logout}>
+              <span>Log out</span>
+            </button>
         <h1 className="font-effect-shadow-multiple" id="userTitle">User's Menu</h1>
         <Link to="/play" >
             <button className="menu-button" id="play-button">
