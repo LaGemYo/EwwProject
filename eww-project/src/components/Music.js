@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import donkey from '../components/sounds/donkey-kong.mp3';
 
 export default class Music extends Component {
   constructor() {

@@ -32,7 +32,7 @@ export default class Login extends React.Component {
         <div form="form-div">
           <form onSubmit={this.onFormSubmit}>
             <label className="form-class">
-              Name:
+              Email:
           <input className="input-form" type="text" />
             </label>
             <label className="form-class">

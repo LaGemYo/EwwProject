@@ -16,7 +16,7 @@ export default class Story extends React.Component {
   render() {
     return (
       <div id="storyDiv">
-        <Link to="/" >
+        <Link to="/user" >
           <div className="return-space">
             <button className="return-arrow-button" />
           </div>

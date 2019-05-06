@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import playgrid from '../pages/playgrid.scss';
 
-import Bar from '../components/Bar.js'
+import Bar from '../components/bar/Bar.js'
 import Foto from '../components/Foto.js'
 import GameScreen from '../components/GameScreen.js'
 //import InteractionMenu from '../components/InteractionMenu.js'
@@ -29,6 +29,8 @@ export default class Play extends React.Component {
       <div id="game-div">
         <div className="grid">
           <div className="up">
+            <Bar />
+            <Bar />
             <Bar />
           </div>
           <div className="left">

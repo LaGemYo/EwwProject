@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { setLanguageReducer } from './languageReducers';
+import { userReducer } from './userReducers';
 
 export default combineReducers({
-  setLanguageReducer: setLanguageReducer
+  userReducer
 })
