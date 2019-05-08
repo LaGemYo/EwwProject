@@ -15,7 +15,6 @@ class GameScreen extends Component {
     return (
         <div id="eww-image">
           <button className="eww-pet" onClick={this.toTalk}/>
-          <span>{this.props.talking}</span>
         </div>
     );
   }
@@ -27,4 +26,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, )(GameScreen);
+export default connect (mapStateToProps)(GameScreen);

@@ -12,7 +12,7 @@ export default class Talking extends Component {
     return (
       <div id="talking-out-div">
         <div id="talking-div">
-          <input id="talking-input" type="text" disabled="disabled" value={`Eww dice...${this.props.talking}`} />
+          <div id="talking-space" type="text">{`Eww dice...${this.props.talking}`}</div>
         </div>
       </div>
     );
