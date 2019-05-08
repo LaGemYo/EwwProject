@@ -12,16 +12,15 @@ import Talking from '../components/Talking.js'
 import ToWetButton from "../components/ToWetButton";
 import ToFeedButton from "../components/ToFeedButton";
 import ToPlayWithEwwButton from '../components/ToPlayWithEwwButton';
+import { connect } from 'react-redux';
 
-export default class Play extends React.Component {
+class Play extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
 
     }
-  }
-  componentDidMount() {
   }
 
   render() {
@@ -51,7 +50,7 @@ export default class Play extends React.Component {
             <ToPlayWithEwwButton />
           </div>
           <div className="right">
-            <Talking />
+            <Talking talking={this.props.talking}/>
             <ShowUserData />
           </div>
         </div>
@@ -59,4 +58,11 @@ export default class Play extends React.Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    talking: state.talkingReducer.talking
+  }
+}
+//hacer funcion mapstatetoprops, intentar pasar la prop al talking
+export default connect(mapStateToProps)(Play)
 

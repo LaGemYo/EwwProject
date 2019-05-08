@@ -10,9 +10,9 @@ export default class ToFeedButton extends Component {
   render() {
     return (
       <div className="interact-button">
-        <div class="dropup">
+        <div className="dropup">
           <button className="down-button" id="to-feed-button" />
-          <div class="dropup-content">
+          <div className="dropup-content">
             <button className="insect" id="insect1"/>
             <button className="insect" id="insect2"/>
             <button className="insect" id="insect3"/>

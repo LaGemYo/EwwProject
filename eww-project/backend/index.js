@@ -2,13 +2,13 @@ const firebaseApp = require('firebase/app');
 const firebase = require('firebase');
 
 var firebaseConfig = {
-    apiKey: "AIzaSyDs8l25OE4LEdTr4chnlP62WZk8mNIlI4c",
-    authDomain: "skylabtest-8e4d3.firebaseapp.com",
-    databaseURL: "https://skylabtest-8e4d3.firebaseio.com",
-    projectId: "skylabtest-8e4d3",
-    storageBucket: "skylabtest-8e4d3.appspot.com",
-    messagingSenderId: "301078835903",
-    appId: "1:301078835903:web:3b0b48cb22ccedbf"
+    apiKey: "AIzaSyCTi0eQ29OASXBCdGUFrluEDVSIURVmv0w",
+    authDomain: "ewwproject-7aafb.firebaseapp.com",
+    databaseURL: "https://ewwproject-7aafb.firebaseio.com",
+    projectId: "ewwproject-7aafb",
+    storageBucket: "ewwproject-7aafb.appspot.com",
+    messagingSenderId: "797234592144",
+    appId: "1:797234592144:web:611a541bbb1f49cb"
   };
   // Initialize Firebase
   firebaseApp.initializeApp(firebaseConfig);

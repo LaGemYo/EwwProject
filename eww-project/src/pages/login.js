@@ -8,18 +8,18 @@ export default class Login extends React.Component {
     super(props);
 
     this.state = {
-      name         : '',
-      lastname     : '',
-      email        : '',
-      password     : '',
-      errorMessage : '',
+      name: '',
+      lastname: '',
+      email: '',
+      password: '',
+      errorMessage: '',
     }
 
     this.authUnRegister = null;
   }
 
   onChangeInput = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   componentWillUnmount() {
@@ -30,17 +30,17 @@ export default class Login extends React.Component {
     e.preventDefault();
     const { email, password } = this.state;
 
-    this.setState({errorMessage: ''});
+    this.setState({ errorMessage: '' });
 
-    if(!email || !password) {
-      this.setState({errorMessage: 'Email y password necesarios para login'});
+    if (!email || !password) {
+      this.setState({ errorMessage: 'Email y password necesarios para login' });
       return;
     }
 
     const error = await AuthService.login(email, password)
 
-    if(error) {
-      this.setState({errorMessage: AuthService.getErrorMessage(error)});
+    if (error) {
+      this.setState({ errorMessage: AuthService.getErrorMessage(error) });
     }
   }
 
@@ -55,19 +55,18 @@ export default class Login extends React.Component {
         </Link>
         <h1 className="font-effect-shadow-multiple" id="mainTitle">Log in</h1>
         <div form="form-div">
-
-        <form onSubmit={this.onSignup}>
-          <div>
-            <label className="form-class">Email</label>
-            <input className="input-form" type="email" name="email" value={email} onChange={this.onChangeInput} />
-          </div>
-          <div>
-            <label className="form-class">Contraseña</label>
-            <input className="input-form" type="password" name="password" value={password} onChange={this.onChangeInput} />
-          </div>
-          <button className="menu-button">¡Entrar!</button>
-          {errorMessage && <p className='error'>{errorMessage}</p>}
-        </form>
+          <form onSubmit={this.onSignup}>
+            <div>
+              <label className="form-class">Email</label>
+              <input className="input-form" type="email" name="email" value={email} onChange={this.onChangeInput} />
+            </div>
+            <div>
+              <label className="form-class">Password</label>
+              <input className="input-form" type="password" name="password" value={password} onChange={this.onChangeInput} />
+            </div>
+            <button className="menu-button">¡Entrar!</button>
+            {errorMessage && <p className='error'>{errorMessage}</p>}
+          </form>
         </div>
       </div>
     )

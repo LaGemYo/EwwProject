@@ -1,7 +1,8 @@
 import * as firebase from 'firebase';
 
-export default class DataService {
 
+export default class DataService {
+    
   static async getContacts() {
     const db = firebase.firestore();
     let results = [];
