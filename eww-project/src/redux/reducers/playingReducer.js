@@ -1,6 +1,6 @@
 
 const defaultState = {
-    ewwState: "",
+    ewwState: null,
     levelPlayingBar: 20,
   }
   

@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 
 export default class DataService {
     
-  static async getContacts() {
+  static async getList() {
     const db = firebase.firestore();
     let results = [];
 

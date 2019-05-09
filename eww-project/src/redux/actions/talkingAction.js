@@ -1,5 +1,5 @@
 export const toTalkAction = () => {
     return {
-      type: 'TALKING'    
+      type: 'TALKING',
     }
   }

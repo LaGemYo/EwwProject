@@ -17,7 +17,7 @@ export default class Bar extends Component {
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
   crossOrigin="anonymous"
 />
-        <ProgressBar id={this.props.id} variant={this.props.variant} now={this.props.levelPlayingBar} className="feed-level"/>
+        <ProgressBar id={this.props.id} variant={this.props.variant} now={this.props.levelBar} className="feed-level"/>
       </div>
     );
   }

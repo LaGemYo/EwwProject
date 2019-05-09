@@ -1,6 +1,6 @@
 const defaultState = {
     talking: [],
-    ewwState: "",
+    ewwState: null,
   }
   
   export const talkingReducer = (state = defaultState, action) => {

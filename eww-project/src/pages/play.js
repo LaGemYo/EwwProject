@@ -28,11 +28,11 @@ class Play extends React.Component {
       <div id="game-div">
         <div className="grid">
           <div className="up">
-            <Bar variant="success"/>
+            <Bar variant="success" id="food-bar"/>
             <div className="bar-label">FOOD</div>
-            <Bar variant="info"/>
+            <Bar variant="info" id="water-bar" levelBar={this.props.levelWaterBar}/>
             <div className="bar-label">WATER</div>
-            <Bar variant="warning" id="Playing-bar" levelPlayingBar={this.props.levelPlayingBar}/>
+            <Bar variant="warning" id="fun-bar" levelBar={this.props.levelPlayingBar}/>
             <div className="bar-label">FUN</div>
           </div>
           <div className="left">
@@ -45,7 +45,7 @@ class Play extends React.Component {
             <Music />
           </div>
           <div className="center">
-            <GameScreen ewwState={this.props.ewwState}/>
+            <GameScreen/>
           </div>
           <div className="down">
             <ToFeedButton />
@@ -66,6 +66,7 @@ const mapStateToProps = (state) => {
     talking: state.talkingReducer.talking,
     image: state.playingReducer.image,
     levelPlayingBar: state.playingReducer.levelPlayingBar,
+    levelWaterBar: state.showeringReducer.levelWaterBar,
   }
 }
 export default connect(mapStateToProps)(Play)

@@ -9,6 +9,7 @@ class ToPlayWithEwwButton extends Component {
     toChangeImage = (e) => {
         e.preventDefault()
         this.props.dispatch({ type: "PLAYING" })
+        setTimeout(() => {this.props.dispatch({type:"STANDARD"})}, 4000)
     }
 
     render() {

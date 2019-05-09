@@ -8,6 +8,7 @@ import UserMenu from './pages/userMenu';
 import Play from './pages/play';
 import Summary from './pages/summary';
 import Story from './pages/story';
+import Confirm from './components/Confirm';
 
 function routes(props) {
   return (
@@ -18,6 +19,7 @@ function routes(props) {
       <Route path="/play" component={Play}/>
       <Route path="/story" component={Story} />
       <Route path="/summary" component={Summary} />
+      <Route path="/confirm" component={Confirm}/>
       <Route exact path="/" component={Main} />          
     </Switch>
   )
