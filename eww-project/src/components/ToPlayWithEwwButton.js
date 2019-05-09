@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 class ToPlayWithEwwButton extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            playing: "",
-            ewwState:"",
-        }
+
     }
     toChangeImage = (e) => {
         e.preventDefault()

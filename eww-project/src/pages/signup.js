@@ -82,7 +82,7 @@ export default class SignUp extends React.Component {
 
     return (
       <div id="signUpDiv">
-        <Link to="/user" >
+        <Link to="/" >
           <div className="return-space-play">
             <button className="return-arrow-button" />
           </div>

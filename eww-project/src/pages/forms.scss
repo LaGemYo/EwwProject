@@ -29,13 +29,31 @@ body{
         text-align: center;
         margin-left: 10px;
     }
-    #loginDiv, #signUpDiv{
+    #signUpDiv,{
         display: block;
         text-align: center;
         background-color: $bg-color;
         width: 90%;
         height: 90%;
         margin: 0 auto;
+    }
+    #loginDiv{
+        display: block;
+        text-align: center;
+        background-color: $bg-color;
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        .return-arrow-button{
+            height: 6vw;
+            width: 6vw;
+            background-size: cover;
+        }
+        #login-button{
+            font-size: 2vw;
+            width: 20%;
+            align-self: center;
+        }
     }
     .return-arrow-button{
         background-image: url(/static/media/return-image.2f4449a8.png);
@@ -51,4 +69,5 @@ body{
     #create-account-button{
         align-self: center;
     }
+
 }
