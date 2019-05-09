@@ -1,5 +1,6 @@
 const defaultState = {
-    talking: []
+    talking: [],
+    ewwState: "",
   }
   
   export const talkingReducer = (state = defaultState, action) => {
@@ -206,7 +207,8 @@ const defaultState = {
       "Una cosa es predicar y otra dar trigo.",
       "Vísteme despacio que tengo prisa.","Zurrón de mendigo, nunca bien henchido."]
       return {
-        talking: array[Math.floor(Math.random() * array.length)]         
+        talking: array[Math.floor(Math.random() * array.length)],
+        ewwState: "talking",         
         }
       }
       return state;   

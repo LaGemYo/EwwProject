@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import gamepad from '../components/images/gamepad.png';
 import { connect } from 'react-redux';
 
 class ToPlayWithEwwButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            playing: ""
+            playing: "",
+            ewwState:"",
         }
     }
     toChangeImage = (e) => {
         e.preventDefault()
         this.props.dispatch({ type: "PLAYING" })
     }
+
     render() {
         return (
             <div className="interact-button">
@@ -23,7 +24,8 @@ class ToPlayWithEwwButton extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-      playing: state.playingReducer.playing
+      playing: state.playingReducer.playing,
+      ewwState: state.playingReducer.ewwState,
     }
   }
 

@@ -45,12 +45,12 @@ class Play extends React.Component {
             <Music />
           </div>
           <div className="center">
-            <GameScreen playing={this.props.playing}/>
+            <GameScreen playing={this.props.playing} ewwState={this.props.ewwState}/>
           </div>
           <div className="down">
             <ToFeedButton />
             <ToWetButton />
-            <ToPlayWithEwwButton/>
+            <ToPlayWithEwwButton playing={this.props.playing} ewwState={this.props.ewwState}/>
           </div>
           <div className="right">
             <Talking talking={this.props.talking}/>
