@@ -1,4 +1,4 @@
-export const toTalkAction = (user) => {
+export const toTalkAction = () => {
     return {
       type: 'TALKING'    
     }

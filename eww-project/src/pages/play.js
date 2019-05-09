@@ -28,9 +28,12 @@ class Play extends React.Component {
       <div id="game-div">
         <div className="grid">
           <div className="up">
-            <Bar />
-            <Bar />
-            <Bar />
+            <Bar variant="success"/>
+            <div className="bar-label">FOOD</div>
+            <Bar variant="info"/>
+            <div className="bar-label">WATER</div>
+            <Bar variant="warning" id="Playing-bar" levelPlayingBar={this.props.levelPlayingBar}/>
+            <div className="bar-label">FUN</div>
           </div>
           <div className="left">
             <Link to="/user" >
@@ -42,12 +45,12 @@ class Play extends React.Component {
             <Music />
           </div>
           <div className="center">
-            <GameScreen />
+            <GameScreen playing={this.props.playing}/>
           </div>
           <div className="down">
             <ToFeedButton />
             <ToWetButton />
-            <ToPlayWithEwwButton />
+            <ToPlayWithEwwButton/>
           </div>
           <div className="right">
             <Talking talking={this.props.talking}/>
@@ -60,9 +63,10 @@ class Play extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    talking: state.talkingReducer.talking
+    talking: state.talkingReducer.talking,
+    image: state.playingReducer.image,
+    levelPlayingBar: state.playingReducer.levelPlayingBar,
   }
 }
-//hacer funcion mapstatetoprops, intentar pasar la prop al talking
 export default connect(mapStateToProps)(Play)
 
