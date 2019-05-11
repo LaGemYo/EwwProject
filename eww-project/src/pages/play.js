@@ -65,7 +65,6 @@ const mapStateToProps = (state) => {
   return {
 
     talking: state.talkingReducer.talking,
-    levelWaterBar: state.showeringReducer.levelWaterBar,
     playingBarLevel: state.modifyStatusBarReducer.playingBarLevel,
     cleanBarLevel: state.modifyStatusBarReducer.cleanBarLevel,
     foodBarLevel: state.modifyStatusBarReducer.foodBarLevel,

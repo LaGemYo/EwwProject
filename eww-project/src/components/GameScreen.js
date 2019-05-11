@@ -59,8 +59,6 @@ const mapStateToProps = (state) => {
   return {
     talking: state.talkingReducer.talking,
     ewwAppearence: state.ewwAppearenceReducer.ewwAppearence,
-    showering: state.showeringReducer.showering,
-    // eating: state.eatingReducer.eating,
     levelWaterBar: state.poohReducer.levelWaterBar,
     user: state.userReducer.user
   }

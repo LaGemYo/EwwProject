@@ -13,12 +13,27 @@ var firebaseConfig = {
   // Initialize Firebase
   firebaseApp.initializeApp(firebaseConfig);
 
+  async function updateBicho(id, data) {
+    const db = firebase.firestore();
+    let success = true;
+
+    try {
+      //con la propiedad merge sólo sobreescribo el dato en concreto que me interesa.
+      await db.collection("ewws").doc(id).set(data, {merge: true});
+    } catch (err) {
+      success = false;
+		  console.log("TCL: DataService -> updateDetail -> err", err)
+    }
+
+    return success;
+  }
+
 async function getBichos () {
     const db = firebase.firestore();
     let results = [];
 
     try {
-      const querySnapshot = await db.collection("contacts").get();
+      const querySnapshot = await db.collection("ewws").get();
 
       querySnapshot.forEach(doc => {
         const objectResult = doc.data();
@@ -32,11 +47,21 @@ async function getBichos () {
     return results;
 }
 
+//Incrementar cacas
 setInterval(async () => {
     const bichos = await getBichos();
     console.log(bichos)
-}, 50000)
+    bichos.forEach((bicho) => {
+      
+      if(!bicho.poohs){
+        bicho.poohs = 0
+      }
+      bicho.poohs++
+      updateBicho(bicho.id, bicho)
+    })
 
+}, 50000)
+//Bajar barra food
 setInterval(async () => {
     const bichos = await getBichos();
     console.log(bichos)
