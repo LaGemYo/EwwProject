@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Pooh from '../components/images/pooh.png';
 import { connect } from 'react-redux';
 import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
+import { poohAction } from '../redux/actions/poohAction'
 
 
 class Poohs extends Component {
@@ -13,7 +14,9 @@ class Poohs extends Component {
     }
     onCleanPooh = (e) => {
         e.preventDefault()
-        this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 10})   
+        this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 10}) 
+        this.props.poohAction()  
+        console.log("ESTADO CACA", this.props.displayPooh)
     }
 
     render() {
@@ -36,11 +39,16 @@ class Poohs extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        displayPooh: state.poohReducer.displayPooh,
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return {
         modifyStatusBarAction: (statusBar) => dispatch(modifyStatusBarAction(statusBar)),
-       // poohAction: () => dispatch()
+        poohAction: () => dispatch(poohAction())
     }
 }
 
-export default connect(null, mapDispatchToProps)(Poohs);
+export default connect(mapStateToProps, mapDispatchToProps)(Poohs);

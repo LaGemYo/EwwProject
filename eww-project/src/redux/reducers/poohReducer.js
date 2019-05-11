@@ -1,12 +1,14 @@
 
 const defaultState = {
-    hidePooh: false,
+   // hidePooh: false,
+   displayPooh: "block",
 }
 
 export const poohReducer = (state = defaultState, action) => {
     if (action.type === 'POOH') {
         return {
-            hidePooh: true,
+            //hidePooh: true,
+            displayPooh: "none"
         }
     }
     return state;
