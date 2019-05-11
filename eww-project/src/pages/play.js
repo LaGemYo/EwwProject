@@ -28,12 +28,12 @@ class Play extends React.Component {
       <div id="game-div">
         <div className="grid">
           <div className="up">
-            <Bar variant="success" id="food-bar" levelBar={this.props.foodBarLevel}/>
             <div className="bar-label">FOOD</div>
-            <Bar variant="info" id="water-bar" levelBar={this.props.cleanBarLevel}/>
+            <Bar variant="success" id="food-bar" levelBar={this.props.foodBarLevel}/>
             <div className="bar-label">CLEAN</div>
-            <Bar variant="warning" id="fun-bar" levelBar={this.props.playingBarLevel}/>
+            <Bar variant="info" id="water-bar" levelBar={this.props.cleanBarLevel}/>
             <div className="bar-label">FUN</div>
+            <Bar variant="warning" id="fun-bar" levelBar={this.props.playingBarLevel}/>
           </div>
           <div className="left">
             <Link to="/user" >

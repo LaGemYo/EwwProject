@@ -16,7 +16,6 @@ class Poohs extends Component {
         e.preventDefault()
         this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 10}) 
         this.props.poohAction()  
-        console.log("ESTADO CACA", this.props.displayPooh)
     }
 
     render() {
