@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import userMenu from './userMenu.scss'
 import AuthService from '../services/authService';
 import DataService from '../services/dataService';
-import Confirm from '../components/Confirm';
+import { connect } from 'react-redux'
+
 
 import { setUserInfo } from '../redux/actions/userActions';
 
-export default class UserMenu extends React.Component {
+class UserMenu extends React.Component {
   constructor(props) {
     super(props);
 
@@ -17,13 +18,39 @@ export default class UserMenu extends React.Component {
     }
   }
 
+  async componentDidMount() {
+    const userInfo = this.props.userInfo
+    if (userInfo) {
+      this.checkUserEww(userInfo.uid)
+    }
+    
+  }
+
+  checkUserEww = async (uid) => {
+
+    //Llamar a firebase a ver si el usuario tiene Eww.
+    const eww = await DataService.getUserEwwAlive(uid)
+
+    if (eww) {
+      //Si existe, lo metemos en redux
+
+    }else {
+      //Si no existe, creamos un eww nuevo.
+      this.createNewEww()
+    }
+  } 
+
+  createNewEww = () => {
+    //Pedimos el nombre con un MODAL
+    //Insertamos el eww en la base de datos
+  }
+
   logout = () => {
     AuthService.logout();
     this.props.history.push('/');
   }
 
   onResetGame = (e) => {
-
     //Cómo llamo aquí al confirm?
   }
 
@@ -53,10 +80,16 @@ export default class UserMenu extends React.Component {
             <button onClick={this.onResetGame()} className="menu-button" id="reset-button">
               <span>Reset Game</span>
             </button>
-        <Confirm/>
         </div>
       </div>
     )
   }
 }
-//Reset button is not a link, it's related to a function component that clears all the data stored and reset de game.
+
+const mapStateToProps = (state) => {
+  return {
+    userInfo: state.userReducer.user
+  }
+}
+
+export default connect(mapStateToProps)(UserMenu);

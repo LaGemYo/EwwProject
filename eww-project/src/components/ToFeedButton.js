@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-import feedButton from '../components/images/feed-button.png'
+import feedButton from '../components/images/feed-button.png';
+import { connect } from 'react-redux';
+import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
+import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
 
-export default class ToFeedButton extends Component {
+class ToFeedButton extends Component {
   constructor() {
     super();
 
   }
+
+  onFeed = (e) => {
+    e.preventDefault()
+    this.props.ewwAppearence({appearence: "eating"})
+    this.props.modifyStatusBarAction({id: 'foodBar', quantity: 20})
+    setTimeout(() => { this.props.ewwAppearence({appearence: "standard"}) }, 5000)
+  }
+
 
   render() {
     return (
@@ -13,12 +24,22 @@ export default class ToFeedButton extends Component {
         <div className="dropup">
           <button className="down-button" id="to-feed-button" />
           <div className="dropup-content">
-            <button className="insect" id="insect1"/>
-            <button className="insect" id="insect2"/>
-            <button className="insect" id="insect3"/>
+            <button className="insect" id="insect1" onClick={this.onFeed} />
+            <button className="insect" id="insect2" onClick={this.onFeed} />
+            <button className="insect" id="insect3" onClick={this.onFeed} />
           </div>
         </div>
       </div>
     );
   }
 }
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ewwAppearence: (appearence) => dispatch(ewwAppearenceAction(appearence)),
+    modifyStatusBarAction: (statusBar) => dispatch(modifyStatusBarAction(statusBar))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ToFeedButton);

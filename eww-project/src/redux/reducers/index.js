@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import { userReducer } from './userReducers';
-import { ewwReducer } from './ewwReducer';
 import { talkingReducer } from './talkingReducer';
-import { playingReducer } from './playingReducer';
-import { showeringReducer } from './showeringReducer';
+import { poohReducer } from './poohReducer';
+import { ewwAppearenceReducer } from './ewwAppearenceReducer';
+import { modifyStatusBarReducer } from './modifyStatusBarReducer';
 
 export default combineReducers({
   userReducer,
-  ewwReducer,
+  ewwAppearenceReducer,
   talkingReducer,
-  playingReducer,
-  showeringReducer,
+  poohReducer,
+  modifyStatusBarReducer
 })

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
+import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
 
 class ToPlayWithEwwButton extends Component {
     constructor(props) {
@@ -8,8 +10,9 @@ class ToPlayWithEwwButton extends Component {
     }
     toChangeImage = (e) => {
         e.preventDefault()
-        this.props.dispatch({ type: "PLAYING" })
-        setTimeout(() => {this.props.dispatch({type:"STANDARD"})}, 4000)
+        this.props.ewwAppearence({ appearence: "playing"})
+        this.props.modifyStatusBarAction({id: 'playBar', quantity: 100})
+        setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 4000)
     }
 
     render() {
@@ -22,9 +25,15 @@ class ToPlayWithEwwButton extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-      playing: state.playingReducer.playing,
-      ewwState: state.playingReducer.ewwState,
+        ewwAppearence: state.ewwAppearenceReducer.ewwAppearence,
     }
-  }
+}
 
-  export default connect (mapStateToProps)(ToPlayWithEwwButton);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        ewwAppearence: (appearence) => dispatch(ewwAppearenceAction(appearence)),
+        modifyStatusBarAction: (statusBar) => dispatch(modifyStatusBarAction(statusBar))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToPlayWithEwwButton);

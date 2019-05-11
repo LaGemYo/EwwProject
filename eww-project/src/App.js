@@ -21,7 +21,7 @@ class App extends Component {
     AuthService.registerAuthObserver(async (user) => {
       if (user) {
         console.log('User is signed in')
-        const userDetail = await DataService.getObjectDetail('user', user.uid);
+        const userDetail = await DataService.getObjectDetail('users', user.uid);
 
         if(userDetail) {
           this.props.setUserInfo(userDetail)

@@ -1,3 +1,5 @@
+
+
 h1, p {
     font-family: Lato;
     text-align: center;
@@ -28,7 +30,7 @@ h1, p {
     grid-area: up; 
     background: pink; 
     width: auto; 
-    height: 100px;
+    height: 120px;
 }
 .down { 
     grid-area: down; 
@@ -73,6 +75,8 @@ h1, p {
         background-color: dimgrey;
         color: white;
         font-weight: bold;
+        font-family: cute-font;
+        font-size: 14px;
     }
 
       #talking-out-div {
@@ -96,6 +100,7 @@ h1, p {
       color: black;
       flex-direction: column;
       display: flex;
+      font-family: cute-font;
      }
       #data-out-div {
         height: 200px;
@@ -180,6 +185,9 @@ h1, p {
   height: 17vw;
   background-size: contain;
   background-repeat: no-repeat;
+  outline: none;
+  -webkit-appearance: none;
+  border: none;
 }
 .eww-img {
   width: 200px;

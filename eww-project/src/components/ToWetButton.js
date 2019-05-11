@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import wetButton from '../components/images/wet-button.png';
 import { connect } from 'react-redux';
+import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
+import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
 
 class ToWetButton extends Component {
   constructor() {
@@ -10,8 +12,11 @@ class ToWetButton extends Component {
 
   toChangeImage = (e) => {
     e.preventDefault()
-    this.props.dispatch({ type: "SHOWERING" })
-    setTimeout(() => { this.props.dispatch({ type: "STANDARD" }) }, 4000)
+    this.props.ewwAppearence({ appearence: "showering"})
+    if (this.props.statusBar >= 60) {
+      this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 100})
+    }
+    setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 4000)
   }
 
   render() {
@@ -25,8 +30,15 @@ class ToWetButton extends Component {
 
 const mapStateToProps = (state) => {
   return {
-
+    statusBar: state.modifyStatusBarReducer.cleanBarLevel
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+      ewwAppearence: (appearence) => dispatch(ewwAppearenceAction(appearence)),
+      modifyStatusBarAction: (statusBar) => dispatch(modifyStatusBarAction(statusBar))
 
-export default connect (mapStateToProps)(ToWetButton);
+    }
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(ToWetButton);
