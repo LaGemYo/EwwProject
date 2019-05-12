@@ -15,7 +15,7 @@ class ToWetButton extends Component {
     audio.play()
     this.props.ewwAppearence({ appearence: "showering"})
     if (this.props.statusBar >= 60) {
-      this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 100})
+      this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 40})
     }
     setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 5000)
   }

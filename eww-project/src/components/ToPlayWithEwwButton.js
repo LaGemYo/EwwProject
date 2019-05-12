@@ -13,7 +13,7 @@ class ToPlayWithEwwButton extends Component {
         e.preventDefault()
         audio.play()
         this.props.ewwAppearence({ appearence: "playing"})
-        this.props.modifyStatusBarAction({id: 'playBar', quantity: 100})
+        this.props.modifyStatusBarAction({id: 'playBar'})
         setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 4000)
     }
 
