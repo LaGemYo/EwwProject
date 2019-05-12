@@ -33,7 +33,7 @@ export const modifyStatusBarReducer = (state = defaultState, action) => {
                 else {
                     return {
                         ...state,
-                        cleanBarLevel: state.cleanBarLevel - 20
+                        cleanBarLevel: state.cleanBarLevel - 20,
                         //añadir cacas
                     }
                 }
