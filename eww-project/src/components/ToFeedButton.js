@@ -3,6 +3,7 @@ import feedButton from '../components/images/feed-button.png';
 import { connect } from 'react-redux';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
 import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
+import eatingeww from '../components/sounds/eatingeww.mp3';
 
 class ToFeedButton extends Component {
   constructor() {
@@ -12,11 +13,11 @@ class ToFeedButton extends Component {
 
   onFeed = (e) => {
     e.preventDefault()
+    audio.play()
     this.props.ewwAppearence({appearence: "eating"})
     this.props.modifyStatusBarAction({id: 'foodBar', quantity: 20})
-    setTimeout(() => { this.props.ewwAppearence({appearence: "standard"}) }, 5000)
+    setTimeout(() => { this.props.ewwAppearence({appearence: "standard"}) }, 2000)
   }
-
 
   render() {
     return (
@@ -34,6 +35,7 @@ class ToFeedButton extends Component {
   }
 }
 
+var audio = new Audio(eatingeww);
 
 const mapDispatchToProps = (dispatch) => {
   return {

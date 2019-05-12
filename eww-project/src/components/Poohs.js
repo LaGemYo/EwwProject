@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Pooh from '../components/images/pooh.png';
 import { connect } from 'react-redux';
 import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
-import { poohAction } from '../redux/actions/poohAction'
+import { poohAction } from '../redux/actions/poohAction';
+import poohcoin from '../components/sounds/poohcoin.mp3';
 
 
 class Poohs extends Component {
@@ -16,6 +17,7 @@ class Poohs extends Component {
         e.preventDefault()
         this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 10}) 
         this.props.poohAction()  
+        audio.play()
     }
 
     render() {
@@ -37,6 +39,8 @@ class Poohs extends Component {
         );
     }
 }
+
+var audio = new Audio(poohcoin)
 
 const mapStateToProps = (state) => {
     return {

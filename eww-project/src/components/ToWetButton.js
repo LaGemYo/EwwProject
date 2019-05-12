@@ -3,20 +3,21 @@ import wetButton from '../components/images/wet-button.png';
 import { connect } from 'react-redux';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
 import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
+import showeringeww from '../components/sounds/showeringeww.mp3';
 
 class ToWetButton extends Component {
   constructor() {
     super();
-
   }
 
   toChangeImage = (e) => {
     e.preventDefault()
+    audio.play()
     this.props.ewwAppearence({ appearence: "showering"})
     if (this.props.statusBar >= 60) {
       this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 100})
     }
-    setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 4000)
+    setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 5000)
   }
 
   render() {
@@ -27,6 +28,8 @@ class ToWetButton extends Component {
     );
   }
 }
+
+var audio = new Audio(showeringeww)
 
 const mapStateToProps = (state) => {
   return {

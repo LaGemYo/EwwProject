@@ -9,6 +9,7 @@ import DataService from '../services/dataService';
 import Poohs from './Poohs';
 import {toTalkAction} from '../redux/actions/talkingAction';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction';
+import talkingeww from '../components/sounds/talkingeww.mp3'
 
 class GameScreen extends Component {
   constructor(props) {
@@ -19,9 +20,11 @@ class GameScreen extends Component {
   }
   toTalk = (e) => {
     e.preventDefault()
+    audio.play()
+    
     this.props.toTalk()
     this.props.ewwAppearenceAction({appearence: "talking"})
-    setTimeout(() => { this.props.ewwAppearenceAction({appearence: "standard"}) }, 4000)
+    setTimeout(() => { this.props.ewwAppearenceAction({appearence: "standard"}) }, 2000)
   }
 
   async componentDidMount() {
@@ -53,6 +56,8 @@ class GameScreen extends Component {
     );
   }
 }
+
+var audio = new Audio(talkingeww)
 
 const mapStateToProps = (state) => {
   console.log('state', state)

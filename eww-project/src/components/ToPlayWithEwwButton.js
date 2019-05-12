@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
 import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
+import playingeww from '../components/sounds/playingeww.mp3';
 
 class ToPlayWithEwwButton extends Component {
     constructor(props) {
         super(props);
 
     }
-    toChangeImage = (e) => {
+    onPlay = (e) => {
         e.preventDefault()
+        audio.play()
         this.props.ewwAppearence({ appearence: "playing"})
         this.props.modifyStatusBarAction({id: 'playBar', quantity: 100})
         setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 4000)
@@ -18,11 +20,14 @@ class ToPlayWithEwwButton extends Component {
     render() {
         return (
             <div className="interact-button">
-                <button onClick={this.toChangeImage} className="down-button" id="play-with-button" />
+                <button onClick={this.onPlay} className="down-button" id="play-with-button" />
             </div>
         );
     }
 }
+
+var audio = new Audio(playingeww)
+
 const mapStateToProps = (state) => {
     return {
         ewwAppearence: state.ewwAppearenceReducer.ewwAppearence,

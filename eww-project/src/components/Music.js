@@ -9,15 +9,12 @@ class Music extends Component {
 
   }
 
-  onPlayMusic = () => {
-    
+  onPlayMusic = () => {   
     this.props.musicAction()
     const musicOn = this.props.musicIsPlaying
     if (musicOn) {
-      console.log(musicOn)
       audio.play()     
     } else {
-      console.log("se supone que es false")
       audio.pause()
     }
   }
