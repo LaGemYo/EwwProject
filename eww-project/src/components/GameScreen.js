@@ -9,7 +9,7 @@ import DataService from '../services/dataService';
 import Poohs from './Poohs';
 import {toTalkAction} from '../redux/actions/talkingAction';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction';
-import talkingeww from '../components/sounds/talkingeww.mp3'
+import talkingeww from '../components/sounds/talkingeww.mp3';
 
 class GameScreen extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class GameScreen extends Component {
 
   async componentDidMount() {
     let user = await DataService.getObjectDetail('users', this.props.user);
-    //hacer el let eww = await.......
+    let ewws = await DataService.getObjectDetail('ewws', this.props.ewws);
 
   }
 

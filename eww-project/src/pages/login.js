@@ -64,7 +64,7 @@ export default class Login extends React.Component {
               <label className="form-class">Password</label>
               <input className="input-form" type="password" name="password" value={password} onChange={this.onChangeInput} />
             </div>
-            <button id="login-button" className="menu-button">Enter</button>
+            <button onClick = {this.onSignup} id="login-button" className="menu-button">Enter</button>
             {errorMessage && <p className='error'>{errorMessage}</p>}
           </form>
         </div>

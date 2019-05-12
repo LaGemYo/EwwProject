@@ -23,7 +23,7 @@ class UserMenu extends React.Component {
     if (userInfo) {
       this.checkUserEww(userInfo.uid)
     }
-    
+
   }
 
   checkUserEww = async (uid) => {
@@ -34,11 +34,11 @@ class UserMenu extends React.Component {
     if (eww) {
       //Si existe, lo metemos en redux
 
-    }else {
+    } else {
       //Si no existe, creamos un eww nuevo.
       this.createNewEww()
     }
-  } 
+  }
 
   createNewEww = () => {
     //Pedimos el nombre con un MODAL
@@ -47,6 +47,7 @@ class UserMenu extends React.Component {
 
   logout = () => {
     AuthService.logout();
+    this.props.setUserInfo(null);
     this.props.history.push('/');
   }
 
@@ -77,9 +78,9 @@ class UserMenu extends React.Component {
           </button>
         </Link>
         <div>
-            <button onClick={this.onResetGame()} className="menu-button" id="reset-button">
-              <span>Reset Game</span>
-            </button>
+          <button onClick={this.onResetGame()} className="menu-button" id="reset-button">
+            <span>Reset Game</span>
+          </button>
         </div>
       </div>
     )
@@ -92,4 +93,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(UserMenu);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUserInfo: () => dispatch (setUserInfo())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

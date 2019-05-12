@@ -43,5 +43,5 @@ const ERROR_MESSAGES = {
   'auth/invalid-email'        : 'El email no es válido',
   'auth/email-already-in-use' : 'El usuario ya está registrado',
   'auth/wrong-password'       : 'Usuario y/o contraseña incorrectos',
-  'auth/user-not-found'       : 'Este usuario no existe -.-'
+  'auth/user-not-found'       : 'Este usuario no existe'
 }

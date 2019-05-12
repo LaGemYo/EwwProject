@@ -1,9 +1,7 @@
 import React from 'react';
-import signup from './signup.scss';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import StorageService from '../services/storageService';
-import AuthService from '../services/authService'
-import DataService from '../services/dataService'
+import AuthService from '../services/authService';
+import DataService from '../services/dataService';
 
 
 export default class SignUp extends React.Component {
@@ -14,7 +12,6 @@ export default class SignUp extends React.Component {
       name: props.name || '',
       email: props.email || '',
       message: props.message || '',
-      imageUrl: props.imageUrl || '',
       error: ''
     }
   }
@@ -29,17 +26,6 @@ export default class SignUp extends React.Component {
     this.props.onSubmitForm({ name, email, message, imageUrl });
   }
 
-  deleteImage = () => {
-    this.setState({ imageUrl: '' });
-  }
-
-  onFileSelected = (e) => {
-    const file = e.target.files[0];
-    console.log("TCL: ContactForm -> onFileSelected -> file", file)
-    StorageService.uploadFile(file, 'contact-images', (imageUrl) => {
-      this.setState({ imageUrl })
-    });
-  }
   onSignup = async (e) => {
     e.preventDefault();
     const { email, password } = this.state;
@@ -66,7 +52,6 @@ export default class SignUp extends React.Component {
         });
 
         if (success) {
-          console.log("GUARDAR NUEVO USUARIO EN REDUX");
           this.props.history.push('/user');
         }
 

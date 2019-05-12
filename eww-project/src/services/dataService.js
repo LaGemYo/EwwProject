@@ -43,7 +43,7 @@ export default class DataService {
 
     return results;
   }
-
+//
   static async getObjectDetail(collection, objId) {
     const db = firebase.firestore();
     let object = null;

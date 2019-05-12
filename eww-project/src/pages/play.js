@@ -63,7 +63,6 @@ class Play extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-
     talking: state.talkingReducer.talking,
     playingBarLevel: state.modifyStatusBarReducer.playingBarLevel,
     cleanBarLevel: state.modifyStatusBarReducer.cleanBarLevel,

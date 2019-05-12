@@ -1,5 +1,5 @@
 const defaultState = {
-  user: 'anonymous'
+  user: null,
 }
 
 export const userReducer = (state = defaultState, action) => {
