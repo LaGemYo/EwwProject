@@ -1,6 +1,6 @@
-export const setEwwInfo = (user) => {
+export const setEwwInfo = (eww) => {
     return {
-      payload: user,
+      payload: eww,
       type: 'SET_EWW_INFO'
     }
   }

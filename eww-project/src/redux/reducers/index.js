@@ -5,6 +5,7 @@ import { poohReducer } from './poohReducer';
 import { ewwAppearenceReducer } from './ewwAppearenceReducer';
 import { modifyStatusBarReducer } from './modifyStatusBarReducer';
 import { musicReducer } from './musicReducer';
+import { ewwDataReducer } from './ewwDataReducer';
 
 export default combineReducers({
   userReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   poohReducer,
   modifyStatusBarReducer,
   musicReducer,
+  ewwDataReducer,
 })

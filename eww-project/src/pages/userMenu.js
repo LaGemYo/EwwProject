@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import userMenu from './userMenu.scss'
 import AuthService from '../services/authService';
 import DataService from '../services/dataService';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { ewwDataAction } from '../redux/actions/ewwDataAction';
+
 
 
 import { setUserInfo } from '../redux/actions/userActions';
@@ -13,7 +15,12 @@ class UserMenu extends React.Component {
     super(props);
 
     this.state = {
-      loading: true
+      loading: true,
+      name: props.name || '',
+      email: props.email || '',
+      message: props.message || '',
+      error: ''
+
 
     }
   }
@@ -27,12 +34,12 @@ class UserMenu extends React.Component {
   }
 
   checkUserEww = async (uid) => {
-
     //Llamar a firebase a ver si el usuario tiene Eww.
     const eww = await DataService.getUserEwwAlive(uid)
 
     if (eww) {
       //Si existe, lo metemos en redux
+      this.setEwwInfo()
 
     } else {
       //Si no existe, creamos un eww nuevo.
@@ -41,8 +48,12 @@ class UserMenu extends React.Component {
   }
 
   createNewEww = () => {
+    // DataService.addObjectWithId("ewws", {
+    //   name:this.props.name,
+    //   uid: this.props.user.uid
+    // })
     //Pedimos el nombre con un MODAL
-    //Insertamos el eww en la base de datos
+    //Insertamos el nombre del eww en la base de datos
   }
 
   logout = () => {
@@ -89,13 +100,15 @@ class UserMenu extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userInfo: state.userReducer.user
+    userInfo: state.userReducer.user,
+    ewwInfo: state.ewwDataReducer.ewwData,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setUserInfo: () => dispatch (setUserInfo())
+    setUserInfo: () => dispatch(setUserInfo()),
+    //setEwwInfo: () => dispatch(setEwwInfo()),
   }
 }
 

@@ -51,18 +51,32 @@ async function getBichos () {
 setInterval(async () => {
     const bichos = await getBichos();
     console.log(bichos)
-    bichos.forEach((bicho) => {
-      
+    bichos.forEach((bicho) => {      
       if(!bicho.poohs){
         bicho.poohs = 0
       }
-      bicho.poohs++
+      bicho.poohs = bicho.poohs < 4 ? bicho.poohs +1 : bicho.poohs
+      bicho.cleanbar = bicho.cleanbar >= 20 ? bicho.cleanbar -20 : 0;
       updateBicho(bicho.id, bicho)
     })
+}, /*10horas=36000000*/5000)
 
-}, 50000)
-//Bajar barra food
+//Bajar barra food cada 5 horas 20
 setInterval(async () => {
     const bichos = await getBichos();
     console.log(bichos)
-}, 40000)
+    bichos.forEach((bicho) => {      
+      bicho.foodbar = bicho.foodbar > 20 ? bicho.foodbar - 20 : 0;
+      updateBicho(bicho.id, bicho)
+    })
+}, /*18000000*/ 5000)
+
+//Bajar barra fun cada 5 horas
+setInterval(async () => {
+  const bichos = await getBichos();
+  console.log(bichos)
+  bichos.forEach((bicho) => {      
+    bicho.funbar = bicho.funbar > 10 ? bicho.funbar - 10 : 0;
+    updateBicho(bicho.id, bicho)
+  })
+}, /*18000000*/ 5000)

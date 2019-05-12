@@ -1,12 +1,12 @@
 const defaultState = {
-    eww: 'anonymous'
+    eww: null,
   }
   
-  export const userReducer = (state = defaultState, action) => {
+  export const ewwDataReducer = (state = defaultState, action) => {
     if(action.type === 'SET_EWW_INFO') {
       return {
         ...state,
-        eww: action.payload
+        ewwData: action.payload
       }
     }
   
