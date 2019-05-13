@@ -63,6 +63,9 @@ class UserMenu extends React.Component {
   }
 
   onResetGame = (e) => {
+    e.preventDefault()
+    //estado de eww pasa a dead
+    //alert create new eww??
     //Cómo llamo aquí al confirm?
   }
 

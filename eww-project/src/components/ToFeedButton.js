@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
 import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
 import eatingeww from '../components/sounds/eatingeww.mp3';
+import eatingeww2 from '../components/sounds/eatingeww2.mp3';
+import eatingeww3 from '../components/sounds/eatingeww3.mp3';
 
 class ToFeedButton extends Component {
   constructor() {
@@ -11,12 +13,12 @@ class ToFeedButton extends Component {
 
   }
 
-  onFeed = (e) => {
+  onFeed = (e, noise) => {
     e.preventDefault()
-    audio.play()
     this.props.ewwAppearence({appearence: "eating"})
     this.props.modifyStatusBarAction({id: 'foodBar', quantity: 20})
     setTimeout(() => { this.props.ewwAppearence({appearence: "standard"}) }, 2000)
+    noise.play()    
   }
 
   render() {
@@ -25,9 +27,9 @@ class ToFeedButton extends Component {
         <div className="dropup">
           <button className="down-button" id="to-feed-button" />
           <div className="dropup-content">
-            <button className="insect" id="insect1" onClick={this.onFeed} />
-            <button className="insect" id="insect2" onClick={this.onFeed} />
-            <button className="insect" id="insect3" onClick={this.onFeed} />
+            <button className="insect" id="insect1" onClick= {(e, noise) => {this.onFeed(e, audio)}} />
+            <button className="insect" id="insect2" onClick= {(e, noise) => {this.onFeed(e, audio2)}} />
+            <button className="insect" id="insect3" onClick= {(e, noise) => {this.onFeed(e, audio3)}} />
           </div>
         </div>
       </div>
@@ -35,7 +37,9 @@ class ToFeedButton extends Component {
   }
 }
 
-var audio = new Audio(eatingeww);
+const audio = new Audio(eatingeww);
+const audio2 = new Audio(eatingeww2);
+const audio3 = new Audio(eatingeww3);
 
 const mapDispatchToProps = (dispatch) => {
   return {

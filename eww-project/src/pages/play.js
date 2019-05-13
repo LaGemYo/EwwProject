@@ -48,7 +48,7 @@ class Play extends React.Component {
             <GameScreen/>
           </div>
           <div className="down">
-            <ToFeedButton />
+            <ToFeedButton/>
             <ToWetButton />
             <ToPlayWithEwwButton/>
           </div>
