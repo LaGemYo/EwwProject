@@ -1,5 +1,13 @@
 const defaultState = {
-    eww: null,
+    birth: null,
+    cleanbar: 100,
+    foodbar: 100,
+    funbar: 100,
+    id: null,
+    name: null,
+    poohs: 0,
+    status: "alive",
+    uid: null,
   }
   
   export const ewwDataReducer = (state = defaultState, action) => {

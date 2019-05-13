@@ -27,9 +27,9 @@ class ToFeedButton extends Component {
         <div className="dropup">
           <button className="down-button" id="to-feed-button" />
           <div className="dropup-content">
-            <button className="insect" id="insect1" onClick= {(e, noise) => {this.onFeed(e, audio)}} />
-            <button className="insect" id="insect2" onClick= {(e, noise) => {this.onFeed(e, audio2)}} />
-            <button className="insect" id="insect3" onClick= {(e, noise) => {this.onFeed(e, audio3)}} />
+            <span className="insect" id="insect1" onClick= {(e, noise) => {this.onFeed(e, audio)}} />
+            <span className="insect" id="insect2" onClick= {(e, noise) => {this.onFeed(e, audio2)}} />
+            <span className="insect" id="insect3" onClick= {(e, noise) => {this.onFeed(e, audio3)}} />
           </div>
         </div>
       </div>

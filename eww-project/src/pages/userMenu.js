@@ -42,6 +42,7 @@ class UserMenu extends React.Component {
       this.setEwwInfo()
 
     } else {
+      //alert poner nombre nuevo eww.
       //Si no existe, creamos un eww nuevo.
       this.createNewEww()
     }
@@ -63,12 +64,15 @@ class UserMenu extends React.Component {
   }
 
   onResetGame = (e) => {
-    e.preventDefault()
+    //e.preventDefault()
     //estado de eww pasa a dead
     //alert create new eww??
     //Cómo llamo aquí al confirm?
   }
-
+  deleteItem = (e) => {
+    window.alert("delete")
+  }
+  
   render() {
     return (
       <div id="userDiv">
@@ -91,11 +95,16 @@ class UserMenu extends React.Component {
             <span>Summary</span>
           </button>
         </Link>
-        <div>
-          <button onClick={this.onResetGame()} className="menu-button" id="reset-button">
-            <span>Reset Game</span>
-          </button>
-        </div>
+    <div>
+      <button className="menu-button" id="reset-button"
+        onClick={e =>
+          window.confirm("Are you sure you wish to delete this item?") &&
+          this.deleteItem(e)
+        }
+      >
+        Reset Game
+      </button>
+    </div>
       </div>
     )
   }
