@@ -51,7 +51,9 @@ class GameScreen extends Component {
         <div className="eww-pet" onClick={this.toTalk}>
           <img className="eww-img" src={ewwImage} alt="EwwImage" />
         </div>
+        <div className="poohs-div">
         <Poohs />
+        </div>
       </div>
     );
   }

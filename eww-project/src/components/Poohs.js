@@ -35,17 +35,19 @@ class Poohs extends Component {
     render() {
         let allPoohs = [...this.props.allPoohs]
         return (
+            
             allPoohs.map((item) =>
                 <img key={item.id} onClick={() => this.onCleanPooh(item.id)}
                     id={item.id}
                     visible= {item.visible}
                     className="pooh-button"
                     style={{
-                        position: "absolute",
+
                         margin: item,
                         display: item.visible ? "block" : "none"
                     }} src={Pooh} alt={item.id} />                   
-            ));
+            )
+        );
     }
 }
 
