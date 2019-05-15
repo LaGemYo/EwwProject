@@ -27,9 +27,9 @@ class Poohs extends Component {
         this.setState({allPoohs})
         this.props.modifyStatusBarAction({ id: 'cleanBar', quantity: 10 })
         audio.play()
-        // return (
-        //     window.alert("¡HAS TOCADO UNA CACA! JAJAJAJA...")
-        // )
+        return (
+            window.alert("¡HAS TOCADO UNA CACA! JAJAJAJA...")
+        )
     }
 
     render() {
