@@ -6,9 +6,8 @@ import DataService from '../services/dataService';
 import { connect } from 'react-redux';
 import { ewwDataAction } from '../redux/actions/ewwDataAction';
 
-
-
 import { setUserInfo } from '../redux/actions/userActions';
+import ModalName from '../components/ModalName';
 
 class UserMenu extends React.Component {
   constructor(props) {
@@ -20,8 +19,6 @@ class UserMenu extends React.Component {
       email: props.email || '',
       message: props.message || '',
       error: ''
-
-
     }
   }
 
@@ -45,6 +42,7 @@ class UserMenu extends React.Component {
       //alert poner nombre nuevo eww.
       //Si no existe, creamos un eww nuevo.
       this.createNewEww()
+
     }
   }
 
@@ -104,6 +102,7 @@ class UserMenu extends React.Component {
       >
         Reset Game
       </button>
+      <ModalName/>
     </div>
       </div>
     )

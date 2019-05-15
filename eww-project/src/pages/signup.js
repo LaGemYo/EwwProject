@@ -12,7 +12,7 @@ export default class SignUp extends React.Component {
       name: props.name || '',
       email: props.email || '',
       message: props.message || '',
-      error: ''
+      error: '',
     }
   }
   onChangeInput = (e) => {
@@ -90,7 +90,9 @@ export default class SignUp extends React.Component {
             <label className="form-class">Password</label>
             <input className="input-form" type="password" name="password" value={password} onChange={this.onChangeInput} />
           </div>
-          <button id="create-account-button" className="menu-button">Create account</button>
+          <button id="create-account-button" className="menu-button">
+          Create account
+          </button>
           {errorMessage && <p>{errorMessage}</p>}
         </form>
       </div>

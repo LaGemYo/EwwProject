@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
 
 body{
+    .roda-close {
+        display: none;
+    }
+    .image-modal {
+        width: 40%
+    }
+
     cursor: pointer;
     button:active {
         box-shadow: 0 5px #666;

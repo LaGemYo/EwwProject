@@ -11,43 +11,49 @@ class Poohs extends Component {
         super(props);
         this.state = {
             user: null,
+
         }
     }
-    onCleanPooh = (e) => {
-        e.preventDefault()
+
+    //ComponentDidMount
+    //FIREBASE case poohs = 1 => pooh id=pooh1 display=
+    onCleanPooh = (poohId) => {
+        let allPoohs = [...this.props.allPoohs]
+        allPoohs.forEach((pooh) => {
+            if(pooh.id === poohId) {
+                pooh.visible = false;	
+            }
+        })
+        this.setState({allPoohs})
         this.props.modifyStatusBarAction({ id: 'cleanBar', quantity: 10 })
-        this.props.poohAction()
         audio.play()
+        // return (
+        //     window.alert("¡HAS TOCADO UNA CACA! JAJAJAJA...")
+        // )
     }
+
     render() {
-        const display = this.props.displayPooh;
-        const allPoohs = [
-            { id: "pooh1", position: "100px 0 0 100px" },
-            { id: "pooh2", position: "100px 0 0 80px" },
-            { id: "pooh3", position: "100px 0 0 60px" },
-            { id: "pooh4", position: "100px 0 0 20px" }
-        ]
+        let allPoohs = [...this.props.allPoohs]
         return (
-            allPoohs.map((id, i) =>
-                <img key={allPoohs[i]} onClick={this.onCleanPooh}
-                    id={allPoohs[i].id}
-                    key={i + 1}
+            allPoohs.map((item) =>
+                <img key={item.id} onClick={() => this.onCleanPooh(item.id)}
+                    id={item.id}
+                    visible= {item.visible}
                     className="pooh-button"
                     style={{
                         position: "absolute",
-                        margin: allPoohs[i].position,
-                        display: display,
-                    }} src={Pooh} alt="pooh" />                   
+                        margin: item,
+                        display: item.visible ? "block" : "none"
+                    }} src={Pooh} alt={item.id} />                   
             ));
     }
-
 }
 
 var audio = new Audio(poohcoin)
 
 const mapStateToProps = (state) => {
     return {
-        displayPooh: state.poohReducer.displayPooh,
+        allPoohs: state.poohReducer.allPoohs,
     }
 }
 const mapDispatchToProps = (dispatch) => {
