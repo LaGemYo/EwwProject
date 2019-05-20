@@ -18,7 +18,6 @@ class ToWetButton extends Component {
     this.props.ewwAppearence({ appearence: "showering"})
     const cleanbar = this.props.eww.cleanbar + 40;
     if (this.props.eww.cleanbar >= 60) {
-      //this.props.modifyStatusBarAction({id: 'cleanbar', quantity: 40})
       DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: Math.min(100, cleanbar)})
     }
     setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 5000)
@@ -46,7 +45,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
       ewwAppearence: (appearence) => dispatch(ewwAppearenceAction(appearence)),
       modifyStatusBarAction: (statusBar) => dispatch(modifyStatusBarAction(statusBar))
-
     }
 }
 

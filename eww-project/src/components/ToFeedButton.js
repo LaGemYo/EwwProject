@@ -14,16 +14,28 @@ class ToFeedButton extends Component {
 
   }
 
+
   onFeed = (e, noise) => {
     e.preventDefault()
     this.props.ewwAppearence({appearence: "eating"})
     
       const foodbar = this.props.eww.foodbar + 20;
       const cleanbar = this.props.eww.cleanbar -20;
+      const poohs = this.props.eww.poohs +1;
+      const allPoohs = this.props.allPoohs
+      console.log('ALLPOOHS', allPoohs)
+      let counter = 0
     if(this.props.eww.foodbar < 100){
-      DataService.updateDetail('ewws', this.props.eww.id, {foodbar: 100})
+      DataService.updateDetail('ewws', this.props.eww.id, {foodbar: foodbar})
     } else {
-      DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: cleanbar -20})
+      DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: cleanbar -20, poohs: poohs})
+      counter ++
+      allPoohs.forEach((pooh) => {
+        if (pooh.id === `pooh${counter}`) {
+            pooh.visible = true;
+        }
+    })
+    console.log('COUNTER', counter)
     }
       
 
@@ -56,7 +68,8 @@ const mapStateToProps = (state) => {
   return {
     foodBarLevel: state.modifyStatusBarReducer.foodBarLevel,
     cleanBarLevel: state.modifyStatusBarReducer.cleanBarLevel,
-    eww: state.ewwDataReducer
+    eww: state.ewwDataReducer,
+    allPoohs: state.poohReducer.allPoohs,
   }
 }
 

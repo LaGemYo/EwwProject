@@ -1,10 +1,10 @@
 
 const defaultState = {
     allPoohs: [
-        { id: "pooh1", visible: true, position: "100px 0 0 100px"},
-        { id: "pooh2", visible: true, position: "100px 0 0 80px"},
-        { id: "pooh3", visible: true, position: "100px 0 0 60px"},
-        { id: "pooh4", visible: true, position: "100px 0 0 20px"},
+        { id: "pooh1", visible: false, position: "100px 0 0 100px"},
+        { id: "pooh2", visible: false, position: "100px 0 0 80px"},
+        { id: "pooh3", visible: false, position: "100px 0 0 60px"},
+        { id: "pooh4", visible: false, position: "100px 0 0 20px"},
     ]
 }
 

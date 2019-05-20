@@ -15,6 +15,7 @@ import ToFeedButton from "../components/ToFeedButton";
 import ToPlayWithEwwButton from '../components/ToPlayWithEwwButton';
 import DataService from '../services/dataService';
 import { connect } from 'react-redux';
+import { poohAction } from '../redux/actions/poohAction';
 
 class Play extends React.Component {
   constructor(props) {
@@ -27,28 +28,51 @@ class Play extends React.Component {
     if(userInfo){
       this.getEww(userInfo.uid)
     }
+    this.showPoohs()
   }
 
   async componentDidUpdate(prevProps) {
     if (!prevProps.userInfo && this.props.userInfo) {
       this.getEww(this.props.userInfo.uid)
+      console.log('POOHS DEL UPDATE', this.props.eww.poohs)
     }
   }
 
   getEww = (uid) => {
     DataService.observeEww(uid, (eww)=>{
-      console.log(eww)
+      console.log('EWW DEL OBSERVER',eww)
       if (eww && eww.status === 'alive') { //compeobar status alive
         //Si existe, lo metemos en redux
         this.props.setEwwInfo(eww)
+        this.showPoohs()
 
       } else {
         //Si no existe, alert & redirect to user usermenu
         this.props.history.push('/user')
       }
     })
-
   }
+  showPoohs = () => {
+    const poohs = this.props.eww.poohs
+    const allPoohs = this.props.allPoohs
+    if (poohs === 1) {
+      allPoohs[0].visible = true
+    } else if (poohs === 2) {
+      allPoohs[0].visible = true
+      allPoohs[1].visible = true
+    } else if (poohs === 3) {
+      allPoohs[0].visible = true
+      allPoohs[1].visible = true
+      allPoohs[2].visible = true
+    }else if (poohs === 4) {
+      allPoohs[0].visible = true
+      allPoohs[1].visible = true
+      allPoohs[2].visible = true
+      allPoohs[3].visible = true
+    }
+    console.log('CACAS',this.props.allPoohs)
+  }
+
 
   render() {
     return (
@@ -94,13 +118,16 @@ const mapStateToProps = (state) => {
     playingBarLevel: state.ewwDataReducer.funbar,
     cleanBarLevel: state.ewwDataReducer.cleanbar,
     foodBarLevel: state.ewwDataReducer.foodbar,
-    userInfo: state.userReducer.user
+    userInfo: state.userReducer.user,
+    allPoohs: state.poohReducer.allPoohs,
+    eww: state.ewwDataReducer,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setEwwInfo: (eww) => dispatch(setEwwInfo(eww))
+    setEwwInfo: (eww) => dispatch(setEwwInfo(eww)),
+    poohAction: () => dispatch(poohAction())
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Play)
