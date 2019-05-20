@@ -14,16 +14,13 @@ class ToFeedButton extends Component {
 
   }
 
-
   onFeed = (e, noise) => {
     e.preventDefault()
-    this.props.ewwAppearence({appearence: "eating"})
-    
+    this.props.ewwAppearence({appearence: "eating"})    
       const foodbar = this.props.eww.foodbar + 20;
       const cleanbar = this.props.eww.cleanbar -20;
       const poohs = this.props.eww.poohs +1;
       const allPoohs = this.props.allPoohs
-      console.log('ALLPOOHS', allPoohs)
       let counter = 0
     if(this.props.eww.foodbar < 100){
       DataService.updateDetail('ewws', this.props.eww.id, {foodbar: foodbar})
@@ -36,10 +33,7 @@ class ToFeedButton extends Component {
         }
     })
     console.log('COUNTER', counter)
-    }
-      
-
-      
+    }     
     setTimeout(() => { this.props.ewwAppearence({appearence: "standard"}) }, 2000)
     noise.play()    
   }

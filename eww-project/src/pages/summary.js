@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 
 class Summary extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
   }
@@ -14,12 +14,11 @@ class Summary extends Component {
 
 
   render() {
-    
+
     return (
       <div id="summaryDiv">
-       <h1>All my ewws</h1>
+        <h1>All my ewws</h1>
         <h1>{this.props.eww.status}</h1>
-
       </div>
     )
   }

@@ -10,8 +10,7 @@ import { connect } from 'react-redux';
   render() {
     const eww = this.props.eww
     const user = this.props.userInfo.name
-    
-        
+           
     return (
       <div id="data-out-div">
         <div id="data-div">

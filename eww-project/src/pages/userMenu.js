@@ -30,17 +30,12 @@ class UserMenu extends React.Component {
       this.checkUserEww(userInfo.uid)
     }
   }
-  // const userInfo = this.props.userInfo
-  // if (userInfo) {
-  //   this.checkUserEww(userInfo.uid)
-  // }
 
   async componentDidUpdate(prevProps) {
     if (!prevProps.userInfo && this.props.userInfo) {
       this.checkUserEww(this.props.userInfo.uid)
     }
   }
-
 
   checkUserEww = async (uid) => {
     //Llamar a firebase a ver si el usuario tiene Eww.
@@ -52,10 +47,9 @@ class UserMenu extends React.Component {
 
     } else {
       this.setState({ visibleModal: true })
-
+      this.props.history.push('/user')
     }
   }
-
 
   logout = () => {
     AuthService.logout();

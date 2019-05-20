@@ -7,7 +7,6 @@ import withUser from '../helpers/withUser';
 import { setEwwInfo } from '../redux/actions/ewwDataAction';
 import { connect } from 'react-redux';
 
-
 class ModalName extends React.Component {
 
     constructor(props) {
@@ -78,7 +77,6 @@ class ModalName extends React.Component {
     render() {
         return (
             <div>
-                <button style={{ display: "none" }} onClick={this.show}>Eww's name</button>
                 <Rodal
                     width={400}
                     height={400}
@@ -94,8 +92,8 @@ class ModalName extends React.Component {
             </div>
                     <div className="body">
                         <form onSubmit={this.onCreateEww}>
-                            <input onChange={this.onInputChange} type="text" />
-                            <button type="submit">OK</button>
+                            <input className="modal-input" onChange={this.onInputChange} type="text" />
+                            <button className="submit-modal" type="submit">OK</button>
                         </form>
                         <button onClick={this.hide} className="rodal-cancel-btn">CLOSE</button>
                         <div>{this.state.errorMessage}</div>

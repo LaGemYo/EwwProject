@@ -16,10 +16,15 @@ import ToPlayWithEwwButton from '../components/ToPlayWithEwwButton';
 import DataService from '../services/dataService';
 import { connect } from 'react-redux';
 import { poohAction } from '../redux/actions/poohAction';
+import ModalBuried from '../components/ModalBuried';
 
 class Play extends React.Component {
   constructor(props) {
     super(props);
+    
+    this.state = {
+      visibleModal: false
+    }
 
   }
 
@@ -46,8 +51,8 @@ class Play extends React.Component {
         this.props.setEwwInfo(eww)
 
       } else {
-        //Si no existe, alert & redirect to user usermenu
-        this.props.history.push('/user')
+        //Si no existe, alert & redirect to user menu
+        setTimeout(() => { this.props.history.push('/user') }, 8000) 
       }
     })
   }
@@ -55,11 +60,10 @@ class Play extends React.Component {
   checkEwwAlive = () => {
     const eww = this.props.eww
     if (eww.cleanbar <= 0 || eww.foodbar <= 0 || eww.funbar <= 0) {
-      window.alert('eww is dead')
+      this.setState({visibleModal: true})
       eww.status = 'dead'
       DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
-      console.log('EWW STATUS', eww.status)
-      this.props.history.push('/user')
+      setTimeout(() => { this.props.history.push('/user') }, 8000) 
     }
   }
 
@@ -84,10 +88,10 @@ class Play extends React.Component {
     }
   }
 
-
   render() {
     return (
       <div id="game-div">
+      <ModalBuried visible={this.state.visibleModal}/>
         <div className="grid">
           <div className="up">
             <div className="bar-label">FOOD</div>
