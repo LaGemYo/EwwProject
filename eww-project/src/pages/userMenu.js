@@ -19,56 +19,43 @@ class UserMenu extends React.Component {
       email: props.email || '',
       message: props.message || '',
       error: '',
-      visibleModal:false
+      visibleModal: false
     }
   }
 
   async componentDidMount() {
     const { userInfo } = this.props
 
-    if(userInfo){
+    if (userInfo) {
       this.checkUserEww(userInfo.uid)
     }
   }
-    // const userInfo = this.props.userInfo
-    // if (userInfo) {
-    //   this.checkUserEww(userInfo.uid)
-    // }
+  // const userInfo = this.props.userInfo
+  // if (userInfo) {
+  //   this.checkUserEww(userInfo.uid)
+  // }
 
-  async componentDidUpdate(prevProps){
+  async componentDidUpdate(prevProps) {
     if (!prevProps.userInfo && this.props.userInfo) {
       this.checkUserEww(this.props.userInfo.uid)
     }
   }
-  
+
 
   checkUserEww = async (uid) => {
     //Llamar a firebase a ver si el usuario tiene Eww.
     const eww = await DataService.getUserEwwAlive(uid)
-console.log("eww:", eww)
+    console.log("eww:", eww)
     if (eww) {
       //Si existe, lo metemos en redux
       this.props.setEwwInfo(uid)
 
     } else {
-      //alert poner nombre nuevo eww.
-      //Si no existe, creamos un eww nuevo.
-      // this.createNewEww()
-      this.setState({visibleModal:true})
+      this.setState({ visibleModal: true })
 
     }
   }
 
-  // createNewEww = () => {
-  //   DataService.addObjectWithId("ewws", {
-  //     name:this.props.name,
-  //     uid: this.props.user.uid
-
-
-  //   })
-  // }
-    //Pedimos el nombre con un MODAL
-    //Insertamos el nombre del eww en la base de datos
 
   logout = () => {
     AuthService.logout();
@@ -76,16 +63,14 @@ console.log("eww:", eww)
     this.props.history.push('/');
   }
 
-  onResetGame = (e) => {
-    //e.preventDefault()
-    //estado de eww pasa a dead
-    //alert create new eww??
-    //Cómo llamo aquí al confirm?
+  onResetGame = () => {
+    let status = this.props.eww.status
+    status = "dead"
+    DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
+    window.alert(status)
   }
-  deleteItem = (e) => {
-    window.alert("delete")
-  }
-  
+
+
   render() {
     return (
       <div id="userDiv">
@@ -108,17 +93,17 @@ console.log("eww:", eww)
             <span>Summary</span>
           </button>
         </Link>
-    <div>
-      <button className="menu-button" id="reset-button"
-        onClick={e =>
-          window.confirm("¿Estás seguro de que quieres borrar todos los datos actuales y comenzar un nuevo juego?") &&
-          this.deleteItem(e)
-        }
-      >
-        Reset Game
+        <div>
+          <button className="menu-button" id="reset-button"
+            onClick={e =>
+              window.confirm("¿Estás seguro de que quieres borrar todos los datos actuales y comenzar un nuevo juego?") &&
+              this.onResetGame()
+            }
+          >
+            Reset Game
       </button>
-      <ModalName visible={this.state.visibleModal}/>
-    </div>
+          <ModalName visible={this.state.visibleModal} />
+        </div>
       </div>
     )
   }
@@ -127,7 +112,8 @@ console.log("eww:", eww)
 const mapStateToProps = (state) => {
   return {
     userInfo: state.userReducer.user,
-    ewwInfo: state.ewwDataReducer.ewwData
+    ewwInfo: state.ewwDataReducer.ewwData,
+    eww: state.ewwDataReducer,
   }
 }
 
