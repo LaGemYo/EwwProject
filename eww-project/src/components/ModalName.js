@@ -53,16 +53,13 @@ class ModalName extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.visible)
+        console.log('VISIBLE?',this.props.visible)
         this.setState({ visible: this.props.visible })
     }
 
     componentDidUpdate(prevProps) {
-        console.log("PrevProps", prevProps);
-        console.log("Props", this.props)
 
         if (prevProps.visible !== this.props.visible) {
-            console.log("Modal info de user")
             this.setState({ visible: this.props.visible })
         }
         if (prevProps.ewwData !== this.props.ewwData) {

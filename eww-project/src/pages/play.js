@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import playgrid from '../pages/playgrid.scss';
 
-import {setEwwInfo} from '../redux/actions/ewwDataAction';
+import { setEwwInfo } from '../redux/actions/ewwDataAction';
 
 import Bar from '../components/bar/Bar.js';
 import Foto from '../components/Foto.js';
@@ -25,7 +25,7 @@ class Play extends React.Component {
 
   async componentDidMount() {
     const { userInfo } = this.props
-    if(userInfo){
+    if (userInfo) {
       this.getEww(userInfo.uid)
     }
     this.showPoohs()
@@ -34,17 +34,16 @@ class Play extends React.Component {
   async componentDidUpdate(prevProps) {
     if (!prevProps.userInfo && this.props.userInfo) {
       this.getEww(this.props.userInfo.uid)
-      console.log('POOHS DEL UPDATE', this.props.eww.poohs)
     }
   }
 
   getEww = (uid) => {
-    DataService.observeEww(uid, (eww)=>{
-      console.log('EWW DEL OBSERVER',eww)
+    DataService.observeEww(uid, (eww) => {
       if (eww && eww.status === 'alive') { //compeobar status alive
         //Si existe, lo metemos en redux
-        this.props.setEwwInfo(eww)
         this.showPoohs()
+        this.checkEwwAlive()
+        this.props.setEwwInfo(eww)
 
       } else {
         //Si no existe, alert & redirect to user usermenu
@@ -52,6 +51,19 @@ class Play extends React.Component {
       }
     })
   }
+
+  checkEwwAlive = () => {
+    const eww = this.props.eww
+    if(eww.cleanbar <= 0 || eww.foodbar <= 0 || eww.funbar <= 0) {
+      window.alert('eww is dead')
+      eww.status = 'dead'
+      DataService.updateDetail('ewws', this.props.eww.id, {status: 'dead'})
+      console.log('EWW STATUS',eww.status)
+      this.props.history.push('/user')
+    }
+  }
+
+  //Simplificar showPoohs
   showPoohs = () => {
     const poohs = this.props.eww.poohs
     const allPoohs = this.props.allPoohs
@@ -64,13 +76,12 @@ class Play extends React.Component {
       allPoohs[0].visible = true
       allPoohs[1].visible = true
       allPoohs[2].visible = true
-    }else if (poohs === 4) {
+    } else if (poohs === 4) {
       allPoohs[0].visible = true
       allPoohs[1].visible = true
       allPoohs[2].visible = true
       allPoohs[3].visible = true
     }
-    console.log('CACAS',this.props.allPoohs)
   }
 
 
@@ -80,11 +91,11 @@ class Play extends React.Component {
         <div className="grid">
           <div className="up">
             <div className="bar-label">FOOD</div>
-            <Bar variant="success" id="food-bar" levelBar={this.props.foodBarLevel}/>
+            <Bar variant="success" id="food-bar" levelBar={this.props.foodBarLevel} />
             <div className="bar-label">CLEAN</div>
-            <Bar variant="info" id="water-bar" levelBar={this.props.cleanBarLevel}/>
+            <Bar variant="info" id="water-bar" levelBar={this.props.cleanBarLevel} />
             <div className="bar-label">FUN</div>
-            <Bar variant="warning" id="fun-bar" levelBar={this.props.playingBarLevel}/>
+            <Bar variant="warning" id="fun-bar" levelBar={this.props.playingBarLevel} />
           </div>
           <div className="left">
             <Link to="/user" >
@@ -96,16 +107,16 @@ class Play extends React.Component {
             <Music />
           </div>
           <div className="center">
-            <GameScreen/>
+            <GameScreen />
           </div>
           <div className="down">
-            <ToFeedButton/>
+            <ToFeedButton />
             <ToWetButton />
-            <ToPlayWithEwwButton/>
+            <ToPlayWithEwwButton />
           </div>
           <div className="right">
-            <Talking talking={this.props.talking}/>
-            <ShowUserData/>
+            <Talking talking={this.props.talking} />
+            <ShowUserData />
           </div>
         </div>
       </div>
