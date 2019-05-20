@@ -20,10 +20,10 @@ class ToFeedButton extends Component {
     
       const foodbar = this.props.eww.foodbar + 20;
       const cleanbar = this.props.eww.cleanbar -20;
-    if(this.props.foodBarLevel < 100){
-      DataService.updateDetail('ewws', this.props.eww.id, {foodbar: Math.min(100, foodbar)})
+    if(this.props.eww.foodbar < 100){
+      DataService.updateDetail('ewws', this.props.eww.id, {foodbar: 100})
     } else {
-      DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: cleanbar})
+      DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: cleanbar -20})
     }
       
 
