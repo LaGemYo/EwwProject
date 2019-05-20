@@ -2,7 +2,6 @@ import 'rodal/lib/rodal.css';
 import React from 'react';
 import Rodal from 'rodal';
 import sad from '../components/images/sad.gif';
-import withUser from '../helpers/withUser';
 import { setEwwInfo } from '../redux/actions/ewwDataAction';
 import { connect } from 'react-redux';
 
@@ -14,7 +13,6 @@ class ModalBuried extends React.Component {
             visible: false,
         };
     }
-
 
     componentDidMount() {
         console.log('VISIBLE?',this.props.visible)

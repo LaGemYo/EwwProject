@@ -23,6 +23,25 @@ export default class DataService {
     return results.length > 0 ? results[0] : null;
   }
 
+  static async getAllUserEwws(userId) {
+    const db = firebase.firestore();
+    let results = [];
+
+    try {
+      const querySnapshot = await db.collection("ewws")
+        .where('uid','==', userId)
+        .get();
+      querySnapshot.forEach(doc => {
+        const objectResult = doc.data();
+        objectResult.id = doc.id;
+        results.push(objectResult);
+      }) 
+    } catch (err) {
+			console.log("TCL: DataService -> getContacts -> err", err)
+    }
+    return results
+  }
+
   static async getList(collection) {
     const db = firebase.firestore();
     let results = [];

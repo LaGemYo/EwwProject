@@ -30,6 +30,9 @@ body{
     .image-modal {
         width: 40%
     }
+    .rodal-dialog {
+        box-shadow: 9px 9px 9px #666;
+    }
 
     cursor: pointer;
     button:active {
@@ -94,5 +97,13 @@ body{
     .Eww-app {
         background-color: white;
         width: 80%;
+    }
+    .summary-title{
+        font-size: 4vw;
+    }
+    .summaryDiv {
+        display: flex;
+        flex-direction: column;
+        width: -webkit-fill-available;
     }
 }

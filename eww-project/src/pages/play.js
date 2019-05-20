@@ -33,7 +33,7 @@ class Play extends React.Component {
     if (userInfo) {
       this.getEww(userInfo.uid)
     }
-    this.showPoohs()
+    this.showPoohs()   
   }
 
   async componentDidUpdate(prevProps) {
