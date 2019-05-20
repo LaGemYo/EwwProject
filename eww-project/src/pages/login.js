@@ -41,8 +41,9 @@ export default class Login extends React.Component {
 
     if (error) {
       this.setState({ errorMessage: AuthService.getErrorMessage(error) });
+    } else {
+      this.props.history.push('/user');
     }
-    this.props.history.push('/user');
   }
 
   render() {

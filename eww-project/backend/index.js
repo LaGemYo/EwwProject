@@ -50,33 +50,49 @@ async function getBichos () {
 //Incrementar cacas
 setInterval(async () => {
     const bichos = await getBichos();
-    console.log(bichos)
+    //console.log(bichos)
     bichos.forEach((bicho) => {      
       if(!bicho.poohs){
         bicho.poohs = 0
       }
-      bicho.poohs = bicho.poohs < 4 ? bicho.poohs +1 : bicho.poohs
-      bicho.cleanbar = bicho.cleanbar >= 20 ? bicho.cleanbar -20 : 0;
-      updateBicho(bicho.id, bicho)
+      const data = {
+        poohs: bicho.poohs < 4 ? bicho.poohs +1 : bicho.poohs,
+        cleanbar: bicho.cleanbar >= 20 ? bicho.cleanbar -20 : 0,
+      }
+
+      if(data.cleanbar === 0) {
+        data.status = "dead"
+      }      
+      updateBicho(bicho.id, data)
     })
-}, /*10horas=36000000*/5000)
+}, /*10horas=36000000*/50000)
 
 //Bajar barra food cada 5 horas 20
 setInterval(async () => {
     const bichos = await getBichos();
-    console.log(bichos)
-    bichos.forEach((bicho) => {      
-      bicho.foodbar = bicho.foodbar > 20 ? bicho.foodbar - 20 : 0;
-      updateBicho(bicho.id, bicho)
+    // console.log(bichos)
+    bichos.forEach((bicho) => {   
+      const data = {
+        foodbar:  bicho.foodbar > 20 ? bicho.foodbar - 20 : 0,
+      }    
+      if(data.foodbar === 0) {
+        data.status = "dead"
+      }    
+      updateBicho(bicho.id, data)
     })
-}, /*18000000*/ 5000)
+}, /*18000000*/ 50000)
 
 //Bajar barra fun cada 5 horas
 setInterval(async () => {
   const bichos = await getBichos();
-  console.log(bichos)
-  bichos.forEach((bicho) => {      
-    bicho.funbar = bicho.funbar > 10 ? bicho.funbar - 10 : 0;
-    updateBicho(bicho.id, bicho)
+  // console.log(bichos)
+  bichos.forEach((bicho) => {   
+    const data = {
+      funbar: bicho.funbar > 10 ? bicho.funbar - 10 : 0
+    }   
+    if(data.funbar === 0) {
+      data.status = "dead"
+    }
+    updateBicho(bicho.id, data)
   })
-}, /*18000000*/ 5000)
+}, /*18000000*/ 50000)

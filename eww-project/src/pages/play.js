@@ -2,25 +2,52 @@ import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import playgrid from '../pages/playgrid.scss';
 
-import Bar from '../components/bar/Bar.js'
-import Foto from '../components/Foto.js'
-import GameScreen from '../components/GameScreen.js'
-//import InteractionMenu from '../components/InteractionMenu.js'
-import Music from '../components/Music.js'
-import ShowUserData from '../components/ShowUserData.js'
-import Talking from '../components/Talking.js'
+import {setEwwInfo} from '../redux/actions/ewwDataAction';
+
+import Bar from '../components/bar/Bar.js';
+import Foto from '../components/Foto.js';
+import GameScreen from '../components/GameScreen.js';
+import Music from '../components/Music.js';
+import ShowUserData from '../components/ShowUserData.js';
+import Talking from '../components/Talking.js';
 import ToWetButton from "../components/ToWetButton";
 import ToFeedButton from "../components/ToFeedButton";
 import ToPlayWithEwwButton from '../components/ToPlayWithEwwButton';
+import DataService from '../services/dataService';
 import { connect } from 'react-redux';
 
 class Play extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+  }
 
+  async componentDidMount() {
+    const { userInfo } = this.props
+    if(userInfo){
+      this.getEww(userInfo.uid)
     }
+  }
+
+  async componentDidUpdate(prevProps) {
+    if (!prevProps.userInfo && this.props.userInfo) {
+      this.getEww(this.props.userInfo.uid)
+    }
+  }
+
+  getEww = (uid) => {
+    DataService.observeEww(uid, (eww)=>{
+      console.log(eww)
+      if (eww && eww.status === 'alive') { //compeobar status alive
+        //Si existe, lo metemos en redux
+        this.props.setEwwInfo(eww)
+
+      } else {
+        //Si no existe, alert & redirect to user usermenu
+        this.props.history.push('/user')
+      }
+    })
+
   }
 
   render() {
@@ -54,7 +81,7 @@ class Play extends React.Component {
           </div>
           <div className="right">
             <Talking talking={this.props.talking}/>
-            <ShowUserData />
+            <ShowUserData/>
           </div>
         </div>
       </div>
@@ -64,10 +91,17 @@ class Play extends React.Component {
 const mapStateToProps = (state) => {
   return {
     talking: state.talkingReducer.talking,
-    playingBarLevel: state.modifyStatusBarReducer.playingBarLevel,
-    cleanBarLevel: state.modifyStatusBarReducer.cleanBarLevel,
-    foodBarLevel: state.modifyStatusBarReducer.foodBarLevel,
+    playingBarLevel: state.ewwDataReducer.funbar,
+    cleanBarLevel: state.ewwDataReducer.cleanbar,
+    foodBarLevel: state.ewwDataReducer.foodbar,
+    userInfo: state.userReducer.user
   }
 }
-export default connect(mapStateToProps)(Play)
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setEwwInfo: (eww) => dispatch(setEwwInfo(eww))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Play)
 

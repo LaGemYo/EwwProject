@@ -25,6 +25,7 @@ class App extends Component {
 
         if(userDetail) {
           this.props.setUserInfo(userDetail)
+          console.log("usuario está en redux")
         } else {
           console.log("ESPERAAAAAA me estoy registrando");
         }

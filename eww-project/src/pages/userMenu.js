@@ -4,10 +4,10 @@ import userMenu from './userMenu.scss'
 import AuthService from '../services/authService';
 import DataService from '../services/dataService';
 import { connect } from 'react-redux';
-import { ewwDataAction } from '../redux/actions/ewwDataAction';
-
+import { setEwwInfo } from '../redux/actions/ewwDataAction';
 import { setUserInfo } from '../redux/actions/userActions';
 import ModalName from '../components/ModalName';
+import withUser from '../helpers/withUser';
 
 class UserMenu extends React.Component {
   constructor(props) {
@@ -18,42 +18,57 @@ class UserMenu extends React.Component {
       name: props.name || '',
       email: props.email || '',
       message: props.message || '',
-      error: ''
+      error: '',
+      visibleModal:false
     }
   }
 
   async componentDidMount() {
-    const userInfo = this.props.userInfo
-    if (userInfo) {
+    const { userInfo } = this.props
+
+    if(userInfo){
       this.checkUserEww(userInfo.uid)
     }
-
   }
+    // const userInfo = this.props.userInfo
+    // if (userInfo) {
+    //   this.checkUserEww(userInfo.uid)
+    // }
+
+  async componentDidUpdate(prevProps){
+    if (!prevProps.userInfo && this.props.userInfo) {
+      this.checkUserEww(this.props.userInfo.uid)
+    }
+  }
+  
 
   checkUserEww = async (uid) => {
     //Llamar a firebase a ver si el usuario tiene Eww.
     const eww = await DataService.getUserEwwAlive(uid)
-
+console.log("eww:", eww)
     if (eww) {
       //Si existe, lo metemos en redux
-      this.setEwwInfo()
+      this.props.setEwwInfo(uid)
 
     } else {
       //alert poner nombre nuevo eww.
       //Si no existe, creamos un eww nuevo.
-      this.createNewEww()
+      // this.createNewEww()
+      this.setState({visibleModal:true})
 
     }
   }
 
-  createNewEww = () => {
-    // DataService.addObjectWithId("ewws", {
-    //   name:this.props.name,
-    //   uid: this.props.user.uid
-    // })
+  // createNewEww = () => {
+  //   DataService.addObjectWithId("ewws", {
+  //     name:this.props.name,
+  //     uid: this.props.user.uid
+
+
+  //   })
+  // }
     //Pedimos el nombre con un MODAL
     //Insertamos el nombre del eww en la base de datos
-  }
 
   logout = () => {
     AuthService.logout();
@@ -96,13 +111,13 @@ class UserMenu extends React.Component {
     <div>
       <button className="menu-button" id="reset-button"
         onClick={e =>
-          window.confirm("Are you sure you wish to delete this item?") &&
+          window.confirm("¿Estás seguro de que quieres borrar todos los datos actuales y comenzar un nuevo juego?") &&
           this.deleteItem(e)
         }
       >
         Reset Game
       </button>
-      <ModalName/>
+      <ModalName visible={this.state.visibleModal}/>
     </div>
       </div>
     )
@@ -112,15 +127,15 @@ class UserMenu extends React.Component {
 const mapStateToProps = (state) => {
   return {
     userInfo: state.userReducer.user,
-    ewwInfo: state.ewwDataReducer.ewwData,
+    ewwInfo: state.ewwDataReducer.ewwData
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setUserInfo: () => dispatch(setUserInfo()),
-    //setEwwInfo: () => dispatch(setEwwInfo()),
+    setEwwInfo: () => dispatch(setEwwInfo())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+export default withUser(connect(mapStateToProps, mapDispatchToProps)(UserMenu));

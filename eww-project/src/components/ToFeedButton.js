@@ -6,6 +6,7 @@ import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
 import eatingeww from '../components/sounds/eatingeww.mp3';
 import eatingeww2 from '../components/sounds/eatingeww2.mp3';
 import eatingeww3 from '../components/sounds/eatingeww3.mp3';
+import DataService from '../services/dataService';
 
 class ToFeedButton extends Component {
   constructor() {
@@ -16,7 +17,17 @@ class ToFeedButton extends Component {
   onFeed = (e, noise) => {
     e.preventDefault()
     this.props.ewwAppearence({appearence: "eating"})
-    this.props.modifyStatusBarAction({id: 'foodBar', quantity: 20})
+    
+      const foodbar = this.props.eww.foodbar + 20;
+      const cleanbar = this.props.eww.cleanbar -20;
+    if(this.props.foodBarLevel < 100){
+      DataService.updateDetail('ewws', this.props.eww.id, {foodbar: Math.min(100, foodbar)})
+    } else {
+      DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: cleanbar})
+    }
+      
+
+      
     setTimeout(() => { this.props.ewwAppearence({appearence: "standard"}) }, 2000)
     noise.play()    
   }
@@ -41,6 +52,14 @@ const audio = new Audio(eatingeww);
 const audio2 = new Audio(eatingeww2);
 const audio3 = new Audio(eatingeww3);
 
+const mapStateToProps = (state) => {
+  return {
+    foodBarLevel: state.modifyStatusBarReducer.foodBarLevel,
+    cleanBarLevel: state.modifyStatusBarReducer.cleanBarLevel,
+    eww: state.ewwDataReducer
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     ewwAppearence: (appearence) => dispatch(ewwAppearenceAction(appearence)),
@@ -48,4 +67,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ToFeedButton);
+export default connect(mapStateToProps, mapDispatchToProps)(ToFeedButton);

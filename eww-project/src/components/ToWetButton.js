@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import wetButton from '../components/images/wet-button.png';
 import { connect } from 'react-redux';
+
+import DataService from '../services/dataService';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction'
 import { modifyStatusBarAction } from '../redux/actions/modifyStatusBarAction'
 import showeringeww from '../components/sounds/showeringeww.mp3';
@@ -14,8 +16,10 @@ class ToWetButton extends Component {
     e.preventDefault()
     audio.play()
     this.props.ewwAppearence({ appearence: "showering"})
-    if (this.props.statusBar >= 60) {
-      this.props.modifyStatusBarAction({id: 'cleanBar', quantity: 40})
+    const cleanbar = this.props.eww.cleanbar + 40;
+    if (this.props.eww.cleanbar >= 60) {
+      //this.props.modifyStatusBarAction({id: 'cleanbar', quantity: 40})
+      DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: Math.min(100, cleanbar)})
     }
     setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 5000)
   }
@@ -33,9 +37,11 @@ var audio = new Audio(showeringeww)
 
 const mapStateToProps = (state) => {
   return {
-    statusBar: state.modifyStatusBarReducer.cleanBarLevel
+    cleanBarLevel: state.modifyStatusBarReducer.cleanBarLevel,
+    eww: state.ewwDataReducer
   }
 }
+
 const mapDispatchToProps = (dispatch) => {
   return {
       ewwAppearence: (appearence) => dispatch(ewwAppearenceAction(appearence)),

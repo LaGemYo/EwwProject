@@ -9,10 +9,9 @@ export default class DataService {
 
     try {
       const querySnapshot = await db.collection("ewws")
-        .where('userId','==', userId)
+        .where('uid','==', userId)
         .where('status','==', "alive")
         .get();
-
       querySnapshot.forEach(doc => {
         const objectResult = doc.data();
         objectResult.id = doc.id;
@@ -21,7 +20,6 @@ export default class DataService {
     } catch (err) {
 			console.log("TCL: DataService -> getContacts -> err", err)
     }
-
     return results.length > 0 ? results[0] : null;
   }
 
@@ -79,11 +77,11 @@ export default class DataService {
     return success;
   }
 
-  static observeEww(callback, userId){
+  static observeEww(userId, callback){
     const db = firebase.firestore();
 
     return db.collection('ewws')
-      .where('userId','==', userId)
+      .where('uid','==', userId)
       .where('status','==', "alive")
       .onSnapshot((querySnapshot)=>{
         let results = [];
@@ -94,7 +92,8 @@ export default class DataService {
           results.push(objectResult);  
         });
 
-        callback(results);
+        const eww = results.length > 0 ? results[0] : null;
+        callback(eww);
       })
   }
 
@@ -128,5 +127,24 @@ export default class DataService {
 
     return success;
   }
+
+  static async addEww(ewwData) {
+    const db = firebase.firestore();
+    let success = false;
+
+    try {
+        const docRef = await db.collection('ewws').add(ewwData);
+        if (docRef && docRef.id) {
+            await this.updateDetail('ewws',docRef.id,{id:docRef.id});
+            await this.updateDetail('users', ewwData.uid,{ewwId:docRef.id})
+            success = true;
+            return docRef.id;
+        }
+    } catch (err) {
+        console.log("TCL: DataService -> addEwws -> err", err)
+    }
+
+    return success;
+}
 
 }

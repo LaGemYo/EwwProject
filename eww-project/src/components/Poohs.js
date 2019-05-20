@@ -27,9 +27,9 @@ class Poohs extends Component {
         this.setState({allPoohs})
         this.props.modifyStatusBarAction({ id: 'cleanBar', quantity: 10 })
         audio.play()
-        return (
-            window.alert("¡HAS TOCADO UNA CACA! JAJAJAJA...")
-        )
+        // return (
+        //     window.alert("¡HAS TOCADO UNA CACA! JAJAJAJA...")
+        // )
     }
 
     render() {
@@ -39,7 +39,6 @@ class Poohs extends Component {
             allPoohs.map((item) =>
                 <img key={item.id} onClick={() => this.onCleanPooh(item.id)}
                     id={item.id}
-                    visible= {item.visible}
                     className="pooh-button"
                     style={{
 

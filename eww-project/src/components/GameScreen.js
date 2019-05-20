@@ -28,8 +28,8 @@ class GameScreen extends Component {
   }
 
   async componentDidMount() {
-    let user = await DataService.getObjectDetail('users', this.props.user);
-    let ewws = await DataService.getObjectDetail('ewws', this.props.ewws);
+    // let user = await DataService.getObjectDetail('users', this.props.user);
+    // let ewws = await DataService.getObjectDetail('ewws', this.props.ewws);
 
   }
 
