@@ -17,6 +17,7 @@ import DataService from '../services/dataService';
 import { connect } from 'react-redux';
 import { poohAction } from '../redux/actions/poohAction';
 import ModalBuried from '../components/ModalBuried';
+import endgame from '../components/sounds/endgame.mp3';
 
 class Play extends React.Component {
   constructor(props) {
@@ -57,12 +58,13 @@ class Play extends React.Component {
     })
   }
 
-  checkEwwAlive = () => {
+  checkEwwAlive = (noise) => {
     const eww = this.props.eww
     if (eww.cleanbar <= 0 || eww.foodbar <= 0 || eww.funbar <= 0) {
       this.setState({visibleModal: true})
       eww.status = 'dead'
       DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
+      audio.play() 
       setTimeout(() => { this.props.history.push('/user') }, 8000) 
     }
   }
@@ -138,6 +140,8 @@ const mapStateToProps = (state) => {
     eww: state.ewwDataReducer,
   }
 }
+
+const audio = new Audio(endgame);
 
 const mapDispatchToProps = (dispatch) => {
   return {
