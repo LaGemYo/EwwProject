@@ -9,22 +9,17 @@ class Summary extends Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      loading: true,
-      contact: null
-    }
   }
 
-  async componentDidMount(){
-    const contact = await DataService.getObjectDetail('users', this.props.match.params.id);
-    this.setState({contact, loading: false})
-  }
+
 
   render() {
-
+    
     return (
       <div id="summaryDiv">
-       email {this.props.email}
+       <h1>All my ewws</h1>
+        <h1>{this.props.eww.status}</h1>
+
       </div>
     )
   }
@@ -32,7 +27,8 @@ class Summary extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userInfo: state.userReducer.user
+    userInfo: state.userReducer.user,
+    eww: state.ewwDataReducer,
   }
 }
 

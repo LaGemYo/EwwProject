@@ -54,11 +54,11 @@ class Play extends React.Component {
 
   checkEwwAlive = () => {
     const eww = this.props.eww
-    if(eww.cleanbar <= 0 || eww.foodbar <= 0 || eww.funbar <= 0) {
+    if (eww.cleanbar <= 0 || eww.foodbar <= 0 || eww.funbar <= 0) {
       window.alert('eww is dead')
       eww.status = 'dead'
-      DataService.updateDetail('ewws', this.props.eww.id, {status: 'dead'})
-      console.log('EWW STATUS',eww.status)
+      DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
+      console.log('EWW STATUS', eww.status)
       this.props.history.push('/user')
     }
   }
@@ -116,7 +116,7 @@ class Play extends React.Component {
           </div>
           <div className="right">
             <Talking talking={this.props.talking} />
-            <ShowUserData />
+            <ShowUserData/>
           </div>
         </div>
       </div>
