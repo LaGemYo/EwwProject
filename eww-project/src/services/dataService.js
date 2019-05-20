@@ -30,6 +30,7 @@ export default class DataService {
     try {
       const querySnapshot = await db.collection("ewws")
         .where('uid','==', userId)
+        .where('status', '==', "dead")
         .get();
       querySnapshot.forEach(doc => {
         const objectResult = doc.data();
