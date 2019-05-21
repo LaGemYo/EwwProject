@@ -56,9 +56,9 @@ class UserMenu extends React.Component {
     this.props.history.push('/');
   }
 
-  onResetGame = () => {
-    let status = this.props.eww.status
-    status = "dead"
+  onResetGame = () => {   
+    const eww = this.props.eww
+    eww.status = 'dead'
     DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
   }
 
