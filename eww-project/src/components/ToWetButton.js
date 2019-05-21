@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import wetButton from '../components/images/wet-button.png';
 import { connect } from 'react-redux';
 
 import DataService from '../services/dataService';

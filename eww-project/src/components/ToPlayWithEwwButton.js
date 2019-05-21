@@ -6,10 +6,6 @@ import playingeww from '../components/sounds/playingeww.mp3';
 import DataService from '../services/dataService';
 
 class ToPlayWithEwwButton extends Component {
-    constructor(props) {
-        super(props);
-
-    }
     onPlay = (e) => {
         e.preventDefault()
         audio.play()

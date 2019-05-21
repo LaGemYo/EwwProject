@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 
 export default class Talking extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
 

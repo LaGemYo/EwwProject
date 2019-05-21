@@ -86,7 +86,7 @@ class ModalName extends React.Component {
                     tabindex="-1"
                     onClose={() => { }}
                 >
-                    <img className="image-modal" src={initeww} />
+                    <img alt="modal-buried" className="image-modal" src={initeww} />
                     <div className="header">
                         GIVE THE EWW A NAME
             </div>

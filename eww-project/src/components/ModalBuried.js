@@ -42,7 +42,7 @@ class ModalBuried extends React.Component {
                     tabindex="-1"
                     onClose={() => { }}
                 >
-                    <img className="image-modal" src={sad} />
+                    <img alt="modal-name" className="image-modal" src={sad} />
                     <div className="header">
                        ¡ ES HORA DE ENTERRARSE !
             </div>

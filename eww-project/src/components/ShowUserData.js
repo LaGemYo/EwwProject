@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
  class ShowUserData extends Component {
-  constructor() {
-    super();
-
-  }
 
   render() {
     const eww = this.props.eww

@@ -3,10 +3,6 @@ import {ProgressBar} from 'react-bootstrap';
 import './bar.scss'
 
 export default class Bar extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
     const variant = this.props.variant

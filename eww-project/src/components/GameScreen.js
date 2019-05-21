@@ -5,7 +5,6 @@ import playing from '../components/images/playing.gif';
 import talking from '../components/images/talking.gif';
 import showering from '../components/images/showering.gif';
 import eating from '../components/images/eating.gif';
-import DataService from '../services/dataService';
 import Poohs from './Poohs';
 import {toTalkAction} from '../redux/actions/talkingAction';
 import { ewwAppearenceAction } from '../redux/actions/ewwAppearenceAction';

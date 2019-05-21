@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import { musicAction } from '../redux/actions/musicAction'
 
 class Music extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   onPlayMusic = () => {   
     this.props.musicAction()
