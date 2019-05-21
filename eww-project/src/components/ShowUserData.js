@@ -15,8 +15,10 @@ import { connect } from 'react-redux';
       <div id="data-out-div">
         <div id="data-div">
           <div id="data-input">
-            <p>Your name: {user}</p>
-            <p>Eww Name: {eww.name}</p>
+            <p>NOMBRE DE USUARIO:</p>
+            <p>{ user }</p>
+            <p>NOMBRE DE EWW:</p>
+            <p>{ eww.name }</p>
           </div>
         </div>
       </div>

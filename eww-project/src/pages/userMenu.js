@@ -40,7 +40,6 @@ class UserMenu extends React.Component {
   checkUserEww = async (uid) => {
     //Llamar a firebase a ver si el usuario tiene Eww.
     const eww = await DataService.getUserEwwAlive(uid)
-    console.log("eww:", eww)
     if (eww) {
       //Si existe, lo metemos en redux
       this.props.setEwwInfo(uid)
@@ -61,7 +60,6 @@ class UserMenu extends React.Component {
     let status = this.props.eww.status
     status = "dead"
     DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
-    window.alert(status)
   }
 
 
@@ -94,7 +92,7 @@ class UserMenu extends React.Component {
               this.onResetGame()
             }
           >
-            Reset Game
+            Reset
       </button>
           <ModalName visible={this.state.visibleModal} />
         </div>

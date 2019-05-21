@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
 
 body{
+
     span.rodal-close {
         display: none;
-    }
-    .font-effect-shadow-multiple {
-        margin-top: auto;
     }
     .rodal-cancel-btn {
         border: #351a65 solid 4px;
@@ -33,7 +31,6 @@ body{
     .rodal-dialog {
         box-shadow: 9px 9px 9px #666;
     }
-
     cursor: pointer;
     button:active {
         box-shadow: 0 5px #666;
@@ -56,23 +53,14 @@ body{
     .menu-button {
         font-family:rancho;
         font-size: 2vw;
-        margin: 15px;
-        padding: 20px;
-        border: #351a65 solid 4px;
+        margin-bottom: 15%;
+        padding: 5%;
+        border: #351a65 solid 3px;
         border-radius: 10px;
         align-content: center;
         background-color: #7961A1;
         box-shadow: 9px 9px 9px #666;
-        width: 20%;        
-    }
-
-    .Eww-app {
-        width: 80%;
-        height: 80%;
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        margin: auto;
+        width: 10vw;        
     }
     a {
         text-decoration: none;
@@ -96,14 +84,20 @@ body{
     }
     .Eww-app {
         background-color: white;
-        width: 80%;
+        width: fit-content;
     }
     .summary-title{
         font-size: 4vw;
+        margin: 10px;
     }
-    .summaryDiv {
+    #summaryDiv {
         display: flex;
         flex-direction: column;
+        width: 60vw;
+        font-size: 2vw;
+    }
+    #return-summary {
+        height: 15vh;
         width: -webkit-fill-available;
     }
 }

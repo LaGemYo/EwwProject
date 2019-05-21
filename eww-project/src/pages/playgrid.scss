@@ -6,8 +6,8 @@ h1, p {
 }
 
 #game-div{
-    width: 100%;
-    height: 100%;
+    width: 60vw;
+    height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
 }
@@ -24,8 +24,7 @@ h1, p {
                          "left center right"
                          "left center right"
                          "left down right"
-}
-  
+}  
 .up { 
     grid-area: up; 
     background: pink; 
@@ -76,10 +75,10 @@ h1, p {
         color: white;
         font-weight: bold;
         font-family: cute-font;
-        font-size: 16px;
+        font-size: 2vh;
         border-radius: 10px;
+        padding: 6%;
     }
-
       #talking-out-div {
           height: 50%;
           margin: 2%;
@@ -87,8 +86,7 @@ h1, p {
       #talking-div {
         margin: 3%;
         height: 100%;
-        margin-top: 10%;
-        
+        margin-top: 10%;        
     }
      #talking-space {
       justify-content: center;
@@ -102,6 +100,8 @@ h1, p {
       flex-direction: column;
       display: flex;
       font-family: cute-font;
+      font-size: 2vh;
+      padding: 6%;
      }
       #data-out-div {
         height: 200px;
@@ -116,7 +116,7 @@ h1, p {
       grid-area: center; 
       background: white; 
       width: auto; 
-      height: 600px; 
+      height: 60vh; 
       background-image: url('../components/images/fondo-juego.png');
       background-size: cover;
       background-repeat: no-repeat;
@@ -126,8 +126,8 @@ h1, p {
       align-items: center;
 }
 .left-button {
-      width: 100%;
-      height: 70px;
+      width: 10vh;
+      height: 10vh;
       background-size: contain;
       background-color: white;
       background-repeat: no-repeat;
@@ -182,8 +182,8 @@ h1, p {
   align-items: center;
 }
 .eww-pet {
-  width: 17vw;
-  height: 17vw;
+  width: auto;
+  height: auto;
   background-size: contain;
   background-repeat: no-repeat;
   outline: none;
@@ -193,13 +193,17 @@ h1, p {
   margin-bottom: 20px;
 }
 .eww-img {
-  width: 200px;
-  height: 200px;
+  width: 20vh;
+  height: 20vh;
   margin-top: 20px;
 }
 .poohs-div {
   display: flex;
   margin-top: 30px;
+}
+.pooh-button {
+  width: 6vh;
+  height: 7vh;
 }
 .dropup {
   position: relative;

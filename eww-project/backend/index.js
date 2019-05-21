@@ -65,9 +65,9 @@ setInterval(async () => {
       }      
       updateBicho(bicho.id, data)
     })
-}, /*10horas=36000000*/50000)
+}, /*10horas=36000000*//*300000*/30000)
 
-//Bajar barra food cada 5 horas 20
+//Bajar barra food 
 setInterval(async () => {
     const bichos = await getBichos();
     // console.log(bichos)
@@ -80,9 +80,9 @@ setInterval(async () => {
       }    
       updateBicho(bicho.id, data)
     })
-}, /*18000000*/ 50000)
+}, /*18000000*/ /*300000*/30000)
 
-//Bajar barra fun cada 5 horas
+//Bajar barra fun 
 setInterval(async () => {
   const bichos = await getBichos();
   // console.log(bichos)
@@ -95,4 +95,4 @@ setInterval(async () => {
     }
     updateBicho(bicho.id, data)
   })
-}, /*18000000*/ 50000)
+}, /*18000000*/ /*300000*/30000)

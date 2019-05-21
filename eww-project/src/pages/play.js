@@ -65,11 +65,10 @@ class Play extends React.Component {
       eww.status = 'dead'
       DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
       audio.play() 
-      setTimeout(() => { this.props.history.push('/user') }, 8000) 
+      setTimeout(() => { this.props.history.push('/user') }, 10000) 
     }
   }
 
-  //Simplificar showPoohs
   showPoohs = () => {
     const poohs = this.props.eww.poohs
     const allPoohs = this.props.allPoohs

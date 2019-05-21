@@ -29,7 +29,7 @@ class Summary extends Component {
     const { userInfo } = this.props
     return (
       <div id="summaryDiv">
-        <Link to="/user" >
+        <Link id="return-summary" to="/user" >
           <div className="return-space">
             <button className="return-arrow-button" />
           </div>
