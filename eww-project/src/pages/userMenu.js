@@ -60,6 +60,7 @@ class UserMenu extends React.Component {
     const eww = this.props.eww
     eww.status = 'dead'
     DataService.updateDetail('ewws', this.props.eww.id, { status: 'dead' })
+    window.location.reload()
   }
 
 

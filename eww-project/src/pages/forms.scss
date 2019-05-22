@@ -33,25 +33,36 @@ body{
         display: block;
         text-align: center;
         background-color: $bg-color;
-        width: 90%;
-        height: 90%;
         margin: 0 auto;
+        width: 60vh;
+        height: 60vh;
     }
     #loginDiv{
         display: block;
         text-align: center;
         background-color: $bg-color;
-        width: 90%;
-        height: 90%;
         margin: 0 auto;
+        width: 60vh;
+        height: 60vh;
+        align-items: center;
         #login-button{
-            font-size: 2vw;
-            width: 20%;
             align-self: center;
+            height: 2vh;
+            width: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
     }
     #create-account-button{
         align-self: center;
+        height: 2vh;
+        width: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
 }

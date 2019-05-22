@@ -16,7 +16,7 @@ class ToWetButton extends Component {
     audio.play()
     this.props.ewwAppearence({ appearence: "showering"})
     const cleanbar = this.props.eww.cleanbar + 40;
-    if (this.props.eww.cleanbar >= 60) {
+    if (this.props.eww.cleanbar >= 40) {
       DataService.updateDetail('ewws', this.props.eww.id, {cleanbar: Math.min(100, cleanbar)})
     }
     setTimeout(() => { this.props.ewwAppearence({ appearence: "standard"}) }, 5000)
