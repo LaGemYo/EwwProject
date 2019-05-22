@@ -1,68 +1,104 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EWW, virtual pet
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+An Eww is a creature that is born from a plant known as "the egg plant", which grows in India. These beings feed on insects, especially mosquitoes and need lots of water and love to live. When the living conditions are not good, Eww will be buried and will result in a new egg plant.<br/>
+Thanks to this app, you can meet the Ewws and take care of them.
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Why did I decide to make this project?
+Why did I decide to make a virtual pet?
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+When I knew that I had to choose a project, the first thing that I thought was that it should be something original interesting for me. At first I thought of something related to children or education, but I didn't know exactly what. <br/>
+One day, the idea of a virtual pet came into my head and I began to imagine how could it work, what its name might be, what it would look like... And the more I thought about it, the more I liked it. <br/>
+Maybe it's not the most educative thing that I could do, but it's still original and besides I've enjoyed a lot developing this friendly pet and its "home".
 
-### `npm test`
+## Functional description
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+The main page contains the main menu, where the user can access with his account or register.<br/>
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once logged in, one accesses the USER MENU, from where one can go directly to PLAY with ones pet, or see the Eww STORY on slides, or either check ones data and ones pet STORY in the SUMMARY or finally, do a RESET and start a new game, with a new Eww.<br/>
+If it's the first time logged in or not have any live pet, a pop-up will ask for a name to create a new Eww.<br/>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The game screen consists on different sections that afford us to interact with our pet:<br/>
+ * The pet's screen, where you can touch Eww to make him talk and pick up the poop he does.
+ * The upper part, where the level bars are located that tell us what our pet needs.<br/>
+ * The left menu, where there's the 'return to user menu' button and the 'music' button, which if we click it, plays music, of course. ;)<br/>
+ * At the bottom, there's the 'interaction menu', which we will use for feeding our Eww, showering it and play with it.<br/>
+ * And finally, on the right side, above, we have a space where what Eww says appears. And a little below, the name of the user and that of his pet is displayed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Functional diagram
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Pages & Components
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Pages
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Main
+* Login
+* SignUp
+* Story
+* Summary
+* UserMenu
+	*ModalName
+* Play
 
-## Learn More
+### Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* SimpleSlider
+* Bar
+* Foto
+* GameScreen
+	* Poohs
+* Music
+* ShowUserData
+* Talking
+* InteractionMenu
+	* ToWetButton
+	* ToFeedButton
+	* ToPlayWithEwwButton
+* ModalBuried
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Built With
 
-### Analyzing the Bundle Size
+* [ReactJS](https://reactjs.org/)
+	* [React-redux](https://www.npmjs.com/package/react-redux)
+	* [React-router](https://www.npmjs.com/package/react-router)
+	* [Slick carousel](https://react-slick.neostack.com/)
+	* [Bootstrap](https://react-bootstrap.github.io/)
+	* [Styles-SASS]()
+	* [Rodal modal](https://www.npmjs.com/package/rodal)
+* [Firebase](https://firebase.google.com/)
+	* Authentication
+    * DataBase
+    * Functions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Data model structure
 
-### Making a Progressive Web App
+```
+Users: [{
+	email: string,
+    ewwId: string,
+    lastName: string,
+    name: string,
+    uid: string
+}]
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Ewws: [{
+	birth: Timestamp,
+    cleanbar: number,
+    foodbar: number,
+    funbar: number,
+    id: string,
+    name: string,
+    poohs: number,
+    status: string,
+    uid: string
+}]
+````
