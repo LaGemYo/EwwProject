@@ -31,7 +31,7 @@ The game screen consists on different sections that afford us to interact with o
 
 ### Functional diagram
 
-![GitHub Logo](/images/logo.png)
+![Web Structure](./web-structure.png)
 Format: ![Alt Text](url)
 
 ## Pages & Components
