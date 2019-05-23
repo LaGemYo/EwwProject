@@ -6,10 +6,10 @@ An Eww is a creature that is born from a plant known as "the egg plant", which g
 Thanks to this app, you can meet the Ewws and take care of them.
 
 
-## Why did I decide to make this project?
-Why did I decide to make a virtual pet?
+## Why did I decide to do this project?
+Why did I decide to do a virtual pet?
 
-When I knew that I had to choose a project, the first thing that I thought was that it should be something original interesting for me. At first I thought of something related to children or education, but I didn't know exactly what. <br/>
+When I knew that I had to choose a project, the first thing that I thought was that it should be something original and interesting for me. At first I thought about doing something related to children or education, but I didn't know exactly what. <br/>
 One day, the idea of a virtual pet came into my head and I began to imagine how could it work, what its name might be, what it would look like... And the more I thought about it, the more I liked it. <br/>
 Maybe it's not the most educative thing that I could do, but it's still original and besides I've enjoyed a lot developing this friendly pet and its "home".
 
@@ -43,7 +43,7 @@ The game screen consists on different sections that afford us to interact with o
 * Story
 * Summary
 * UserMenu
-	*ModalName
+	* ModalName
 * Play
 
 ### Components
@@ -81,15 +81,15 @@ The game screen consists on different sections that afford us to interact with o
 ## Data model structure
 
 ```
-Users: [{
+Users: {
 	email: string,
     ewwId: string,
     lastName: string,
     name: string,
     uid: string
-}]
+}
 
-Ewws: [{
+Ewws: {
 	birth: Timestamp,
     cleanbar: number,
     foodbar: number,
@@ -99,5 +99,5 @@ Ewws: [{
     poohs: number,
     status: string,
     uid: string
-}]
+}
 ````
