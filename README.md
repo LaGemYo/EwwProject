@@ -1,2 +1,2 @@
 # EwwProject
-Final project of Skylab course
+Transferred to other repository, conserved only for the history.
